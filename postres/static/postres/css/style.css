@@ -1,0 +1,357 @@
+/*ETIQUETAS EXISTENTES*/
+
+body {
+    background-color: #F6D8AE;
+    font-family: 'Kalam', cursive;
+}
+
+nav {
+    background-color: #402A2C;
+}
+
+#parrafoAcercade {
+    text-align: justify;
+    margin-top: 5%;
+    padding-right: 3%;
+    padding-left: 3%;
+    font-size: x-large;
+}
+
+h1 {
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+a {
+    color: #FFFF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #A3A3A3
+}
+
+
+/*CLASES*/
+
+.cardColor {
+    background-color: #FF85BE;
+}
+
+.navbarColor {
+    background-color: #703D57;
+}
+
+.footerColor {
+    background-color: #241715;
+}
+
+.bordeRedonBottom {
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+.bordeRedonTop {
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+
+
+/* texto del Nav */
+
+.navText {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+
+/* texto nav 2 */
+
+.navText2 {
+    font-size: large;
+    font-weight: 600;
+}
+
+
+/* Titulo texto card */
+
+.cardTitulo {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+
+/* Texto card Precio */
+
+.cardPrecio {
+    font-size: xx-large;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+
+/* Texto card italic */
+
+.cardNormTran {
+    font-style: italic;
+    padding-bottom: 1rem;
+}
+
+
+/* Texto descriptivo cards*/
+
+.cardtextdesc {
+    font-size: large;
+}
+
+.centrar {
+    text-align: center;
+    margin: auto;
+}
+
+
+/* NO SIRVE */
+
+.centrarVertical {
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+
+/* CARD */
+
+.card {
+    margin-bottom: 2%;
+    border-radius: 2rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    color: #703D57;
+}
+
+
+/* IMAGEN DE CARD */
+
+.card-img-top {
+    border-radius: 2rem;
+}
+
+.alto {
+    height: 20vh;
+}
+
+.ancho40 {
+    width: 40%;
+}
+
+.icono {
+    font-size: 2rem;
+    color: #ffff;
+}
+
+
+/* links munú inicio*/
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 2rem;
+    padding-left: 2rem;
+    color: white;
+}
+
+
+/* links munú inicio HOVER*/
+
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+    color: rgba(255, 255, 255, 0.582);
+}
+
+
+/* links inactivo navbar2*/
+
+.nav-pills .nav-link,
+.nav-pills .show>.nav-link {
+    color: #F6D8AE;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+
+/* links inactivo navbar2 HOVER*/
+
+.nav-pills .nav-link:hover,
+.nav-pills .show>.nav-link {
+    color: #FF85BE;
+    font-weight: bold;
+}
+
+
+/* links ACTIVO navbar2 */
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #703D57;
+    background-color: #F6D8AE;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 5rem;
+}
+
+.map-responsive iframe {
+    margin: 5%;
+    left: 0;
+    top: 0;
+    height: 50vh;
+    width: 60%;
+}
+
+#whatsapp-img {
+    padding: 1rem;
+    width: 6rem;
+    margin: auto;
+}
+
+
+/* texto parrafo inicio */
+
+.p-ini {
+    font-size: xx-large;
+    font-weight: bolder;
+    color: #F6D8AE;
+    text-align: center;
+}
+
+
+/* texto de lista inicio */
+
+.li-ini {
+    font-size: x-large;
+    text-align: left;
+    color: #F6D8AE;
+}
+
+footer {
+    margin-top: 5rem;
+    padding-bottom: 0px;
+}
+
+.pMenu {
+    color: #241715;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+
+/* no lo estoy usando */
+
+.texto-responsive {
+    font-size: calc(100% + 1vw + 1vh);
+}
+
+
+/* imagen QR */
+
+#qr-img {
+    width: 15rem;
+    border-radius: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.nav-color {
+    background-color: #402A2C;
+}
+
+
+/* elementos inline */
+
+span a {
+    display: inline;
+    margin-left: 2%;
+    margin-right: 2%;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.margen5 {
+    margin: 5%;
+}
+
+.sin-margen-bottom p {
+    margin-bottom: 0rem;
+}
+
+#footer-h-prod {
+    height: 20vh;
+}
+
+#margen-i-2rem {
+    margin-left: 2rem;
+}
+
+
+/* height card productos */
+
+
+/* chocolates */
+
+.h-card-ch {
+    height: 62vh;
+}
+
+
+/* tortas */
+
+.h-card-t {
+    height: 68vh;
+}
+
+
+/* postres */
+
+.h-card-p {
+    height: 68vh;
+}
+
+.margen5-top {
+    margin-top: 5%;
+}
+
+label {
+    margin-top: 2%;
+    color: #703D57;
+}
+
+input.error,
+textarea.error {
+    border: 2px dashed #ff0000;
+    font-weight: 300;
+    color: #ff0000;
+}
+
+label.error {
+    color: #ff0000;
+    font-size: 1rem;
+    display: block;
+    margin-top: 5px;
+}
+
+input.valid,
+textarea.valid {
+    border: 2px solid #008000;
+}
+
+.bordeInput {
+    border-style: solid;
+    border-color: #FF85BE;
+    border-width: 2px;
+}
+
+.tabla-color{
+    background-color: #402A2C;
+}
+
+.p-tabla{
+    color: #F6D8AE;
+    font-weight: normal;
+    font-size: 1.4rem;
+    border-color: #F6D8AE;
+}
