@@ -8,3 +8,9 @@ def home(request): #home es una funcion que siempre se llama así pero sirve par
     
 def contacto(request):
     return render(request, 'postres/contacto.html')
+
+def acercade(request):
+    return render(request, 'postres/acercade.html')
+
+def menu(request):
+    return render(request, 'postres/menuProductos.html')

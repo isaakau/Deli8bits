@@ -16,105 +16,105 @@
 </head>
 
 <body class="container-fluid">
-<section>
-    <header>
-        <!--MENÚ PRINCIPAL-->
-        <nav class="navbar navbar-expand-lg bordeRedonBottom">
-            <!--Logo-->
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
-                    <img src="{% static 'postres/img/sweets(1).png' %}" alt="Logo">
-                </a>
-                <!--Hamburguesa-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenedor" aria-controls="navbarContenedor" aria-expanded="false" aria-label="Toggle navigation">
+    <section>
+        <header>
+            <!--MENÚ PRINCIPAL-->
+            <nav class="navbar navbar-expand-lg bordeRedonBottom">
+                <!--Logo-->
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="{% static 'postres/img/sweets(1).png' %}" alt="Logo">
+                    </a>
+                    <!--Hamburguesa-->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenedor" aria-controls="navbarContenedor" aria-expanded="false" aria-label="Toggle navigation">
                 <!--icono hamburguesa-->
                     <span><i class="bi-list icono"></i></span>
                 </button>
-                <!--secciones del menú-->
-                <div class="collapse navbar-collapse justify-content-center navText" id="navbarContenedor">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="acercade.html">Acerca de</a></li>
-                        <li class="nav-item"><a class="nav-link" href="menuProductos.html">Productos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-                    </ul>
+                    <!--secciones del menú-->
+                    <div class="collapse navbar-collapse justify-content-center navText" id="navbarContenedor">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="{%url 'home'%}">Inicio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{%url 'acercade'%}">Acerca de</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{%url 'menu'%}}">Productos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{%url 'contacto'%}">Contacto</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
-    
-    <!--Menu de Postres-->
-    <section class="centrar"> 
-        <div class="container">
-            <div class="row" style="padding: 5rem;">
-                <div class="col-4 centrar margen5-top" style="width: 20rem; padding: 0%;">
-                    <div class="card">
-                        <div class="card-body">
-                            <div>
-                                <a href="Chocolateria.html">
-                                    <img src="{% static 'postres/img/chocolate.png'%}" alt="Chocolate" class="w-100">
-                                    <p class="pMenu">Chocolates</p>
+            </nav>
+        </header>
+
+        <!--Menu de Postres-->
+        <section class="centrar">
+            <div class="container">
+                <div class="row" style="padding: 5rem;">
+                    <div class="col-4 centrar margen5-top" style="width: 20rem; padding: 0%;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div>
+                                    <a href="Chocolateria.html">
+                                        <img src="{% static 'postres/img/chocolate.png'%}" alt="Chocolate" class="w-100">
+                                        <p class="pMenu">Chocolates</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4 centrar margen5-top" style="width: 20rem; padding: 0%;">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="Postres.html">
+                                    <img src="{% static'postres/img/postre.png'%}" alt="Postre" class="w-100">
+                                    <p class="pMenu">Postres</p>
                                 </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4 centrar margen5-top" style="width: 20rem; padding: 0%;">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="Tortas.html">
+                                    <img src="{% static 'postres/img/torta.png'%}" alt="Torta" class="w-100">
+                                    <p class="pMenu">Tortas</p>
+                                </a>
+
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-4 centrar margen5-top" style="width: 20rem; padding: 0%;">
-                    <div class="card">
-                        <div class="card-body">
-                            <a href="Postres.html">
-                                <img src="{% static'postres/img/postre.png'%}" alt="Postre" class="w-100">
-                                <p class="pMenu">Postres</p>
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-4 centrar margen5-top" style="width: 20rem; padding: 0%;">
-                    <div class="card">
-                        <div class="card-body">
-                            <a href="Tortas.html">
-                                <img src="{% static 'postres/img/torta.png'%}" alt="Torta" class="w-100">
-                                <p class="pMenu">Tortas</p>
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!--FOOTER-->
-    <!--en el footer faltan los links a redes sociales y los créditos de la página-->
-    <footer class="p-2 footerColor bordeRedonTop bottom" id="footer-h-prod">
-        <div class="container p-1">
-            <div class="row justify-content-center">
-                <span class="centrar"> 
+        <!--FOOTER-->
+        <!--en el footer faltan los links a redes sociales y los créditos de la página-->
+        <footer class="p-2 footerColor bordeRedonTop bottom" id="footer-h-prod">
+            <div class="container p-1">
+                <div class="row justify-content-center">
+                    <span class="centrar"> 
                 <a href="..."><i class="bi bi-instagram centrar text-white"></i></a> 
                 <a href="..."><i class="bi bi-facebook centrar text-white"></i></a> 
                 <a href="..."><i class="bi bi-twitter centrar text-white"></i></a> 
                 </span>
-            </div>
-            <div class="row justify-content-center p-1">
-                <span class="centrar">
+                </div>
+                <div class="row justify-content-center p-1">
+                    <span class="centrar">
                 <a href="index.html">Inicio</a>
                 <a href="acercade.html">Acerca de</a>
                 <a href="menuProductos.html">Productos</a>
                 <a href="contacto.html">Contacto</a>
                 </span>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col text-center font-weight-light text-white sin-margen-bottom">
-                    <p>Realizado por PC IM DC</p>
-                    <p> © 2021 Todos los derechos reservados para Delibits.</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col text-center font-weight-light text-white sin-margen-bottom">
+                        <p>Realizado por PC IM DC</p>
+                        <p> © 2021 Todos los derechos reservados para Delibits.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
-</section>
+        </footer>
+    </section>
 
     <!--Popper y Bootstraps juntos-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
