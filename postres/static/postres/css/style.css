@@ -294,21 +294,21 @@ span a {
 /* chocolates */
 
 .h-card-ch {
-    height: 62vh;
+    height: 600px;
 }
 
 
 /* tortas */
 
 .h-card-t {
-    height: 68vh;
+    height: 650px;
 }
 
 
 /* postres */
 
 .h-card-p {
-    height: 68vh;
+    height: 640px;
 }
 
 .margen5-top {
