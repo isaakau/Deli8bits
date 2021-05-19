@@ -5,3 +5,6 @@ def home(request): #home es una funcion que siempre se llama así pero sirve par
     return render(request, 'postres/index.html') 
     #render = me redirigue
     #request = la llamada al index
+    
+def contacto(request):
+    return render(request, 'postres/contacto.html')

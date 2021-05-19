@@ -18,6 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('postres.urls')), #se agrega el formulario.urls
+    path('', include('postres.urls')), 
 ]
-
