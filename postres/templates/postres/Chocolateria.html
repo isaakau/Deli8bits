@@ -23,8 +23,8 @@
         <nav class="navbar navbar-expand-lg">
             <!--Logo-->
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/sweets(1).png" alt="Logo">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="{% static 'postres/img/sweets(1).png' %}" alt="Logo">
                 </a>
                 <!--Hamburguesa-->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenedor" aria-controls="navbarContenedor" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,10 +34,10 @@
                 <!--secciones del menú-->
                 <div class="collapse navbar-collapse justify-content-center navText" id="navbarContenedor">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="acercade.html">Acerca de</a></li>
-                        <li class="nav-item"><a class="nav-link" href="menuProductos.html">Productos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{%url 'home'%}">Inicio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{%url 'acercade'%}">Acerca de</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{%url 'menu'%}">Productos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{%url 'contacto'%}">Contacto</a></li>
                     </ul>
                 </div>
             </div>
@@ -46,13 +46,13 @@
         <div class="navbar justify-content-center navbarColor navText2 bordeRedonBottom">
             <ul class="ro nav nav-pills">
                 <li class="nav-item col-12 col-sm">
-                    <a class="nav-link active" aria-current="page" href="Chocolateria.html">Chocolates</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'chocolateria' %}">Chocolates</a>
                 </li>
                 <li class="nav-item col-12 col-sm">
-                    <a class="nav-link" href="Tortas.html">Tortas</a>
+                    <a class="nav-link" href="{% url 'tortas' %}">Tortas</a>
                 </li>
                 <li class="nav-item col-12 col-sm">
-                    <a class="nav-link" href="Postres.html">Postres</a>
+                    <a class="nav-link" href="{% url 'postres' %}">Postres</a>
                 </li>
             </ul>
         </div>
@@ -93,7 +93,7 @@
 
             <div class="col-12 col-md-6 col-xl-4">
                 <div class="card cardColor centrar h-card-ch" style="width: 20rem; padding: 0%;">
-                    <img src="{% static 'img/almendra.jpg'%}" class="card-img-top" alt="postre3">
+                    <img src="{% static 'postres/img/almendra.jpg'%}" class="card-img-top" alt="postre3">
                     <div class="card-body">
                         <h4 class="cardTitulo">Huevito Almendra</h4>
                         <p class="card-text cardtextdesc">Bombón de chocolate de leche relleno de gianduja de almendra y trocitos de almendra.</p>
@@ -168,10 +168,10 @@
             </div>
             <div class="row justify-content-center p-1">
                 <span class="centrar">
-                <a href="index.html">Inicio</a>
-                <a href="acercade.html">Acerca de</a>
-                <a href="menuProductos.html">Productos</a>
-                <a href="contacto.html">Contacto</a>
+                <a href="{% url 'home' %}">Inicio</a>
+                <a href="{% url 'acercade' %}">Acerca de</a>
+                <a href="{% url 'menu' %}">Productos</a>
+                <a href="{% url 'contacto' %}">Contacto</a>
                 </span>
             </div>
             <div class="row justify-content-center">

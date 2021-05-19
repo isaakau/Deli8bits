@@ -14,3 +14,12 @@ def acercade(request):
 
 def menu(request):
     return render(request, 'postres/menuProductos.html')
+
+def chocolateria(request):
+    return render(request, 'postres/Chocolateria.html')
+
+def postres(request):
+    return render(request, 'postres/Postres.html')
+
+def tortas(request):
+    return render(request, 'postres/Tortas.html')    

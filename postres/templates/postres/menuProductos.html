@@ -51,7 +51,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div>
-                                    <a href="Chocolateria.html">
+                                    <a href="{%url 'chocolateria'%}">
                                         <img src="{% static 'postres/img/chocolate.png'%}" alt="Chocolate" class="w-100">
                                         <p class="pMenu">Chocolates</p>
                                     </a>
@@ -63,7 +63,7 @@
                     <div class="col-4 centrar margen5-top" style="width: 20rem; padding: 0%;">
                         <div class="card">
                             <div class="card-body">
-                                <a href="Postres.html">
+                                <a href="{% url 'postres' %}">
                                     <img src="{% static 'postres/img/postre.png'%}" alt="Postre" class="w-100">
                                     <p class="pMenu">Postres</p>
                                 </a>
@@ -75,7 +75,7 @@
                     <div class="col-4 centrar margen5-top" style="width: 20rem; padding: 0%;">
                         <div class="card">
                             <div class="card-body">
-                                <a href="Tortas.html">
+                                <a href="{% url 'tortas' %}">
                                     <img src="{% static 'postres/img/torta.png'%}" alt="Torta" class="w-100">
                                     <p class="pMenu">Tortas</p>
                                 </a>
@@ -100,11 +100,11 @@
                 </div>
                 <div class="row justify-content-center p-1">
                     <span class="centrar">
-                <a href="index.html">Inicio</a>
-                <a href="acercade.html">Acerca de</a>
-                <a href="menuProductos.html">Productos</a>
-                <a href="contacto.html">Contacto</a>
-                </span>
+                    <a href="{% url 'home' %}">Inicio</a>
+                    <a href="{% url 'acercade' %}">Acerca de</a>
+                    <a href="{% url 'menu' %}">Productos</a>
+                    <a href="{% url 'contacto' %}">Contacto</a>
+                    </span>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col text-center font-weight-light text-white sin-margen-bottom">
