@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import PRODUCTO
+from .forms import PRODUCTOForm
 
 # Creamos nuestras Vistas o funciones
 def home(request): #home es una funcion que siempre se llama así pero sirve para llamar a la página de inicio
@@ -24,14 +25,29 @@ def form_PRODUCTO(request):
     datos = {
         'form':PRODUCTOForm()
     }
-
     if(request.method == 'POST'): #post guardar datos?
         formulario = PRODUCTOForm(request.POST)
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Guardados correctamente'
-    return render(request,'formulario/form_vehiculo.html',datos)
+    return render(request,'postres/form_producto.html',datos)
 
+def form_mod_PRODUCTO(request,id):
+    producto = PRODUCTO.objects.get(ID_PROD = id)
+    datos = {
+        'form':PRODUCTOForm(instance=producto)
+    }
+    if(request.method == 'POST'): #post guardar datos?
+        formulario = PRODUCTOForm(data=request.POST, instance=producto)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = 'Modificados correctamente'
+    return render(request,'postres/form_mod_producto.html',datos)    
+
+def form_del_PRODUCTO(id):
+    producto = PRODUCTO.objects.get(ID_PROD = id)
+    producto.delete()
+    return redirect(to="menu")
 def chocolateria(request):
     return render(request, 'postres/Chocolateria.html')
 

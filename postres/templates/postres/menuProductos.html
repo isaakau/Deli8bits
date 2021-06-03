@@ -96,13 +96,18 @@
             </tr>
             {% for pro in productos%} <!--el pro es como el i en las iteraciones-->
             <tr>
+                <td>{{pro.ID_PROD}}</td>
                 <td>{{pro.NOM_PROD}}</td>
                 <td>{{pro.DESC_PROD}}</td>
                 <td>{{pro.PRECIO_PROD}}</td>
+                <td><a href="{% url 'form_mod_producto' pro.ID_PROD %}">Modificar</a></td>
+                <td><a href="{% url 'form_del_producto' pro.ID_PROD %}">Eliminar</a></td>
             </tr>
             {% endfor %}
         </table>
-
+        <div>
+            <a href="{% url 'form_producto' %}">Agregar producto</a>
+        </div>
 
         <!--FOOTER-->
         <!--en el footer faltan los links a redes sociales y los créditos de la página-->
