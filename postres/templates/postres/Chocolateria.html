@@ -63,8 +63,23 @@
     <!-- 1ra fila -->
     <section class="container">
         <div class="row p-3">
-            <div class="col-12 col-md-6 col-xl-4">
-                <div class="card cardColor centrar h-card-ch" style="width: 20rem; padding: 0%;">
+            {% for pro in productos%} <!--el pro es como el i en las iteraciones-->
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="card cardColor centrar h-card-ch" style="width: 20rem; padding: 0%;">
+                        <img src="{% static 'postres/img/myms.jpg'%}" class="card-img-top" alt="postre1">
+                        <div class="card-body">
+                            <h4 class="cardTitulo">{{pro.NOM_PROD}}</h4>
+                            <p class="card-text cardtextdesc">{{pro.DESC_PROD}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text cardPrecio">${{pro.PRECIO_PROD}}</p>
+                            <p class="card-text cardNormTran">c/u</p>
+                        </div>
+                    </div>
+                </div> 
+            {% endfor %}
+
+                <!-- <div class="card cardColor centrar h-card-ch" style="width: 20rem; padding: 0%;">
                     <img src="{% static 'postres/img/myms.jpg'%}" class="card-img-top" alt="postre1">
                     <div class="card-body">
                         <h4 class="cardTitulo">Huevito MyM’s</h4>
@@ -100,10 +115,10 @@
                     </div>
                     <div class="card-footer">
                         <p class="card-text cardPrecio">$875</p>
-                        <p class="card-text cardNormTran">c/u</p>
+                        <p class="card-text cardNormTran">c/u</p> 
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </section>
 

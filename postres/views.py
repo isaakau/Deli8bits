@@ -14,11 +14,7 @@ def acercade(request):
     return render(request, 'postres/acercade.html')
 
 def menu(request):
-    listaproductos = PRODUCTO.objects.all() #hace un Select * a la tabla
-    datos = {
-        'productos':listaproductos
-    }
-    return render(request, 'postres/menuProductos.html',datos)
+    return render(request, 'postres/menuProductos.html')
 
 def form_PRODUCTO(request):
     datos = {
@@ -33,7 +29,12 @@ def form_PRODUCTO(request):
     return render(request,'formulario/form_vehiculo.html',datos)
 
 def chocolateria(request):
-    return render(request, 'postres/Chocolateria.html')
+    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO') #hace un Select * a la tabla
+    # listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 1') #hace un Select * a la tabla
+    datos = {
+        'productos':listaproductos
+    }
+    return render(request, 'postres/Chocolateria.html', datos)
 
 def postres(request):
     return render(request, 'postres/Postres.html')

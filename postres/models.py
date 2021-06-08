@@ -17,7 +17,8 @@ class PRODUCTO(models.Model):
     DESC_PROD = models.CharField(max_length=100,default=0, blank=True, verbose_name='Descripción')
     PRECIO_PROD = models.IntegerField(null=True,verbose_name='Precio')
     CAT_PRODUCTO = models.ForeignKey(CAT_PRODUCTO, on_delete=models.CASCADE)
-    
+    IMAGEN_PROD = models.ImageField #campo de imagen
+
     def __str__(self):
         return self.NOM_PROD
 

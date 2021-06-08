@@ -95,14 +95,26 @@
                 <th>Precio</th>
             </tr>
             {% for pro in productos%} <!--el pro es como el i en las iteraciones-->
-            <tr>
+            <!-- <tr>
                 <td>{{pro.NOM_PROD}}</td>
                 <td>{{pro.DESC_PROD}}</td>
                 <td>{{pro.PRECIO_PROD}}</td>
-            </tr>
+            </tr> -->
+            <div class="card cardColor centrar h-card-ch" style="width: 20rem; padding: 0%;">
+                <img src="{% static 'postres/img/myms.jpg'%}" class="card-img-top" alt="postre1">
+                <div class="card-body">
+                    <h4 class="cardTitulo">{{pro.NOM_PROD}}</h4>
+                    <p class="card-text cardtextdesc">{{pro.DESC_PROD}}</p>
+                </div>
+                <div class="card-footer">
+                    <p class="card-text cardPrecio">${{pro.PRECIO_PROD}}</p>
+                    <p class="card-text cardNormTran">c/u</p>
+                </div>
+            </div>
             {% endfor %}
         </table>
 
+        
 
         <!--FOOTER-->
         <!--en el footer faltan los links a redes sociales y los créditos de la página-->
