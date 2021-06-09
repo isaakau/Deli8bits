@@ -29,15 +29,23 @@ def form_PRODUCTO(request):
     return render(request,'formulario/form_vehiculo.html',datos)
 
 def chocolateria(request):
-    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO') 
-    # listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 1') #hace un Select * a la tabla
+    # listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO order by ID_PROD') 
+    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 1 order by ID_PROD') 
     datos = {
         'productos':listaproductos
     }
     return render(request, 'postres/Chocolateria.html', datos)
 
 def postres(request):
-    return render(request, 'postres/Postres.html')
+    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 2 order by ID_PROD') 
+    datos = {
+        'productos':listaproductos
+    }
+    return render(request, 'postres/Postres.html',datos)
 
 def tortas(request):
-    return render(request, 'postres/Tortas.html')    
+    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 3 order by ID_PROD') 
+    datos = {
+        'productos':listaproductos
+    }
+    return render(request, 'postres/Tortas.html',datos)    

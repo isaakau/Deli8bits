@@ -64,7 +64,28 @@
     <!-- 1ra fila -->
     <section class="container centrar">
         <div class="row p-3">
-            <div class="col-12 col-md-6 col-xl-4">
+            {% for pro in productos%} <!--el pro es como el i en las iteraciones-->
+                <!-- pasa el nombre de la imagen a string y le da un nombre de variable-->
+                {% with pro.IMAGEN_PROD|stringformat:"s" as v_img%} 
+                    <!-- se desace de la primera parte que no permite llamarlo por static-->
+                    {% with v_img|slice:"15:" as v_img%}
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <div class="card cardColor centrar h-card-ch" style="width: 20rem; padding: 0%;">
+                                <img src="{% static v_img %}" class="card-img-top" alt="postre1">
+                                <div class="card-body">
+                                    <h4 class="cardTitulo">{{pro.NOM_PROD}}</h4>
+                                    <p class="card-text cardtextdesc">{{pro.DESC_PROD}}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <p class="card-text cardPrecio">${{pro.PRECIO_PROD}}</p>
+                                    <p class="card-text cardNormTran">c/u</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endwith %}
+                {% endwith %}
+            {% endfor %}
+            <!-- <div class="col-12 col-md-6 col-xl-4">
                 <div class="card cardColor centrar h-card-t" style="width: 20rem; padding: 0%;">
                     <img src="{%static 'postres/img/lucuma.jpg' %}" class="card-img-top" alt="postre1">
                     <div class="card-body">
@@ -104,7 +125,7 @@
                         <p class="card-text cardNormTran">18 personas</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
