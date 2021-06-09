@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import PRODUCTO
+from .forms import PRODUCTOForm
 
 # Creamos nuestras Vistas o funciones
 def home(request): #home es una funcion que siempre se llama así pero sirve para llamar a la página de inicio
@@ -14,23 +15,42 @@ def acercade(request):
     return render(request, 'postres/acercade.html')
 
 def menu(request):
+    return render(request, 'postres/menuProductos.html')
+
+def administracion(request):
     listaproductos = PRODUCTO.objects.all() #hace un Select * a la tabla
     datos = {
         'productos':listaproductos
     }
-    return render(request, 'postres/menuProductos.html',datos)
+    return render(request, 'postres/administracion.html', datos)
 
-def form_PRODUCTO(request):
+def form_prod(request):
     datos = {
         'form':PRODUCTOForm()
     }
-
     if(request.method == 'POST'): #post guardar datos?
         formulario = PRODUCTOForm(request.POST)
         if formulario.is_valid():
             formulario.save()
-            datos['mensaje'] = 'Guardados correctamente'
-    return render(request,'formulario/form_vehiculo.html',datos)
+            datos['mensaje'] = 'Guardado correctamente'
+    return render(request,'postres/form_prod.html',datos)
+
+def form_mod_prod(request,id):
+    producto = PRODUCTO.objects.get(ID_PROD = id)
+    datos = {
+        'form':PRODUCTOForm(instance=producto)
+    }
+    if(request.method == 'POST'): #post guardar datos?
+        formulario = PRODUCTOForm(data=request.POST, instance=producto)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = 'Modificados correctamente'
+    return render(request,'postres/form_mod_prod.html',datos)    
+
+def form_del_prod(request, id):
+    producto = PRODUCTO.objects.get(ID_PROD = id)
+    producto.delete()
+    return redirect(to="administracion")
 
 def chocolateria(request):
     return render(request, 'postres/Chocolateria.html')
