@@ -29,7 +29,7 @@ def form_PRODUCTO(request):
     return render(request,'formulario/form_vehiculo.html',datos)
 
 def chocolateria(request):
-    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO') #hace un Select * a la tabla
+    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO') 
     # listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 1') #hace un Select * a la tabla
     datos = {
         'productos':listaproductos
