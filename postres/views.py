@@ -30,6 +30,7 @@ def form_prod(request):
     }
     if(request.method == 'POST'): #post guardar datos?
         formulario = PRODUCTOForm(request.POST)
+    
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Guardado correctamente'
