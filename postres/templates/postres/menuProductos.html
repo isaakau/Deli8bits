@@ -37,6 +37,7 @@
                             <li class="nav-item"><a class="nav-link" href="{%url 'acercade'%}">Acerca de</a></li>
                             <li class="nav-item"><a class="nav-link" href="{%url 'menu'%}">Productos</a></li>
                             <li class="nav-item"><a class="nav-link" href="{%url 'contacto'%}">Contacto</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{%url 'administracion'%}">Administración</a></li>
                         </ul>
                     </div>
                 </div>
@@ -59,19 +60,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-4 centrar margen5-top" style="width: 20rem; padding: 0%;">
-                        <div class="card">
-                            <div class="card-body">
-                                <a href="{% url 'postres' %}">
-                                    <img src="{% static 'postres/img/postre.png'%}" alt="Postre" class="w-100">
-                                    <p class="pMenu">Postres</p>
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="col-4 centrar margen5-top" style="width: 20rem; padding: 0%;">
                         <div class="card">
                             <div class="card-body">
@@ -79,7 +67,16 @@
                                     <img src="{% static 'postres/img/torta.png'%}" alt="Torta" class="w-100">
                                     <p class="pMenu">Tortas</p>
                                 </a>
-
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 centrar margen5-top" style="width: 20rem; padding: 0%;">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="{% url 'postres' %}">
+                                    <img src="{% static 'postres/img/postre.png'%}" alt="Postre" class="w-100">
+                                    <p class="pMenu">Postres</p>
+                                </a>
                             </div>
                         </div>
                     </div>

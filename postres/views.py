@@ -24,36 +24,39 @@ def administracion(request):
     }
     return render(request, 'postres/administracion.html', datos)
 
+#AGREGAR PRODUCTO
 def form_prod(request):
     datos = {
         'form':PRODUCTOForm()
     }
     if(request.method == 'POST'): #post guardar datos?
-        formulario = PRODUCTOForm(request.POST)
+        formulario = PRODUCTOForm(request.POST, request.FILES)
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Guardado correctamente'
     return render(request,'postres/form_prod.html',datos)
 
+#MODIFICAR PRODUCTO
 def form_mod_prod(request,id):
     producto = PRODUCTO.objects.get(ID_PROD = id)
     datos = {
         'form':PRODUCTOForm(instance=producto)
     }
+    
     if(request.method == 'POST'): #post guardar datos?
-        formulario = PRODUCTOForm(data=request.POST, instance=producto)
+        formulario = PRODUCTOForm(request.POST, request.FILES, instance=producto)
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Modificados correctamente'
     return render(request,'postres/form_mod_prod.html',datos)    
 
+#ELIMINAR PRODUCTO
 def form_del_prod(request, id):
     producto = PRODUCTO.objects.get(ID_PROD = id)
     producto.delete()
     return redirect(to="administracion")
 
 def chocolateria(request):
-    # listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO order by ID_PROD') 
     listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 1 order by ID_PROD') 
     datos = {
         'productos':listaproductos

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t1bj_r0)%vwrac73#v4hbf=6drpgllg8d8^^bd)j%4&fojr5ap'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True #se supone que esto debería cambiarse a falso en produccion
 
 ALLOWED_HOSTS = []
 
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'deli8Bits.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle', #ok
-        'NAME': '127.0.0.1:1521/xe', #ex|XEPDB1
+        'NAME': '127.0.0.1:1521/XEPDB1', #ex|XEPDB1
         'USER':'PRODD8B',
         'PASSWORD': 'deli',
         'TEST':{ #ok
@@ -126,9 +127,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL= '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = 'static'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
