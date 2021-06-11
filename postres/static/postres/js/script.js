@@ -70,7 +70,11 @@ $(document).ready(function() {
 });
 
 
-//alerta cuando se elimina producto
+//alertas
 $(document).on('click', '.eliminar', function(){
     return confirm('¿Esta seguro que desea eliminar este producto?');
 })
+
+function alerta() {
+    alert('No disponible 😔');
+}

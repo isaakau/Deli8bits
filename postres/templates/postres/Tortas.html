@@ -39,7 +39,8 @@
                         <li class="nav-item"><a class="nav-link" href="{%url 'acercade'%}">Acerca de</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'menu'%}">Productos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'contacto'%}">Contacto</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{%url 'administracion'%}">Administración</a></li>
+                        <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'administracion'%}">Administración</a></li>
+                        <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'usuarios'%}">Usuario</a></li>                        
                     </ul>
                 </div>
 
@@ -67,8 +68,8 @@
     <section class="container centrar">
         <div class="row p-3">
             {% for pro in productos%} <!--el pro es como el i en las iteraciones-->
-                <div class="col-12 col-md-6 col-xl-4">
-                    <div class="card cardColor centrar h-card-ch" style="width: 20rem; padding: 0%;">
+                <div class="col-12 col-md-6 col-xl-4 margen5-top">
+                    <div class="card cardColor centrar h-card-t" style="width: 20rem; padding: 0%;">
                         <img src="{{ pro.IMAGEN_PROD.url }}" class="card-img-top" alt="postre1">
                         <div class="card-body">
                             <h4 class="cardTitulo">{{pro.NOM_PROD}}</h4>
@@ -81,78 +82,18 @@
                     </div>
                 </div>
             {% endfor %}
-            <!-- <div class="col-12 col-md-6 col-xl-4">
-                <div class="card cardColor centrar h-card-t" style="width: 20rem; padding: 0%;">
-                    <img src="{%static 'postres/img/lucuma.jpg' %}" class="card-img-top" alt="postre1">
-                    <div class="card-body">
-                        <h4 class="cardTitulo">Torta helada lúcuma manjar</h4>
-                        <p class="card-text cardtextdesc">Clásica torta helada compuesta por discos de merengue, crema de lúcuma y crema de manjar.</p>
-                    </div>
-                    <div class="card-footer">
-                        <p class="card-text cardPrecio">$18.000</p>
-                        <p class="card-text cardNormTran">15 personas</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-xl-4">
-                <div class="card cardColor centrar h-card-t" style="width: 20rem; padding: 0%;">
-                    <img src="{%static 'postres/img/frutilla.jpg' %}" class="card-img-top" alt="postre2">
-                    <div class="card-body">
-                        <h4 class="cardTitulo">Torta helada frutilla</h4>
-                        <p class="card-text cardtextdesc">Clásica y deliciosa torta helada en base a crema de frutilla y mermelada casera, intercalada con discos de merengue.</p>
-                    </div>
-                    <div class="card-footer">
-                        <p class="card-text cardPrecio">$18.000</p>
-                        <p class="card-text cardNormTran">15 personas</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-xl-4">
-                <div class="card cardColor centrar h-card-t" style="width: 20rem; padding: 0%;">
-                    <img src="{%static 'postres/img/mazapan.jpg' %}" class="card-img-top" alt="postre3">
-                    <div class="card-body">
-                        <h4 class="cardTitulo">Torta panqueque mazapán</h4>
-                        <p class="card-text cardtextdesc">Deliciosa torta elaborada con finas capas de bizcocho y relleno de chocolate bitter, manjar crocante y mazapán.</p>
-                    </div>
-                    <div class="card-footer">
-                        <p class="card-text cardPrecio">$25.000</p>
-                        <p class="card-text cardNormTran">18 personas</p>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </section>
-    
-            <!-- 2da fila -->
-            <!-- <section class="container centrar">
-                <div class="row p-3">
-                    <div class="col-12 col-md-6 col-xl-4">
-                        <div class="card cardColor centrar h-card-t" style="width: 20rem; padding: 0%;">
-                            <img src="{%static 'postres/img/holandesa.jpg' %}" class="card-img-top" alt="postre4">
-                            <div class="card-body">
-                                <h4 class="cardTitulo">Torta holandesa</h4>
-                                <p class="card-text cardtextdesc">Clásica torta de milhoja rellena con crema pastelera de vainilla, mermelada de cerezas y crema de manjar decorada con chantillí, hojitas de chocolate y marrasquinos.</p>
-                            </div>
-                            <div class="card-footer">
-                                <p class="card-text cardPrecio">$25.000</p>
-                                <p class="card-text cardNormTran">15 personas</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
 
             <!--FOOTER-->
             <footer class="p-2 footerColor bordeRedonTop">
                 <div class="container p-1">
                     <div class="row justify-content-center">
                         <span class="centrar"> 
-                <a href="..."><i class="bi bi-instagram centrar text-white"></i></a> 
-                <a href="..."><i class="bi bi-facebook centrar text-white"></i></a> 
-                <a href="..."><i class="bi bi-twitter centrar text-white"></i></a> 
-                </span>
+                            <a href="" onclick="alerta()"><i class="bi bi-instagram centrar text-white"></i></a> 
+                            <a href="" onclick="alerta()"><i class="bi bi-facebook centrar text-white"></i></a> 
+                            <a href="" onclick="alerta()"><i class="bi bi-twitter centrar text-white"></i></a> 
+                        </span>
                     </div>
                     <div class="row justify-content-center p-1">
                         <span class="centrar">
@@ -173,6 +114,7 @@
 
             <!-- JavaScript Bundle with Popper -->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+            <script src="{%static 'postres/js/script.js'%}"></script>
 </body>
 
 </html>

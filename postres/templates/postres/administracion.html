@@ -39,7 +39,8 @@
                         <li class="nav-item"><a class="nav-link" href="{%url 'acercade'%}">Acerca de</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'menu'%}">Productos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'contacto'%}">Contacto</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{%url 'administracion'%}">Administración</a></li>
+                        <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'administracion'%}">Administración</a></li>
+                        <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'usuarios'%}">Usuario</a></li>
                     </ul>
                 </div>
             </div>
@@ -47,6 +48,9 @@
     </header>
 
     <div class="container centrar margen5-top">
+        <a href="{% url 'form_prod' %}" class="btn btn-light btn-lg bordeRedonTop bordeRedonBottom cardColor margen5-bottom" role="button">
+            <img class="img-tamaño m-1" src="{% static 'postres/img/plus(1).png' %}" alt="mas">
+            Agregar producto</a>
         <div class="row">
             <div class="col-sm-12 card">
                 <div class="card-body sin-margen-bottom">
@@ -80,12 +84,11 @@
                                     <td scope="col">{{pro.CAT_PRODUCTO}}</td>
 
                                     <td>
-                                        <a href="{% url 'form_mod_prod' pro.ID_PROD %}"><img style="width:20px" src="{% static 'postres/img/editar.png' %}" alt="Modificar"></a>
+                                        <a href="{% url 'form_mod_prod' pro.ID_PROD %}"><img class="img-mediano" src="{% static 'postres/img/editar.png' %}" alt="Modificar"></a>
                                     </td>
                                     <td>
-                                        <a class="eliminar" href="{% url 'form_del_prod' pro.ID_PROD %}" ><img style="width:20px" src="{% static 'postres/img/borrar.png' %}" alt="Borrar"></a>
+                                        <a class="eliminar" href="{% url 'form_del_prod' pro.ID_PROD %}" ><img class="img-mediano" src="{% static 'postres/img/borrar.png' %}" alt="Borrar"></a>
                                     </td>
-
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -93,9 +96,7 @@
                 </div>
             </div>
         </div>
-        <a href="{% url 'form_prod' %}">Agregar producto</a>
     </div>
-
 
 
     <!--FOOTER-->
@@ -104,9 +105,9 @@
         <div class="container p-1">
             <div class="row justify-content-center">
                 <span class="centrar"> 
-                <a href="..."><i class="bi bi-instagram centrar text-white"></i></a> 
-                <a href="..."><i class="bi bi-facebook centrar text-white"></i></a> 
-                <a href="..."><i class="bi bi-twitter centrar text-white"></i></a> 
+                <a href="" onclick="alerta()"><i class="bi bi-instagram centrar text-white"></i></a> 
+                <a href="" onclick="alerta()"><i class="bi bi-facebook centrar text-white"></i></a> 
+                <a href="" onclick="alerta()"><i class="bi bi-twitter centrar text-white"></i></a> 
                 </span>
             </div>
             <div class="row justify-content-center p-2">

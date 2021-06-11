@@ -21,7 +21,7 @@
     <!--HEADER-->
     <header>
         <!--MENÚ PRINCIPAL-->
-        <nav class="navbar navbar-expand-lg ">
+        <nav class="navbar navbar-expand-lg bordeRedonBottom">
             <!--Logo-->
             <div class="container-fluid">
                 <a class="navbar-brand" href="{% url 'home' %}">
@@ -39,17 +39,18 @@
                         <li class="nav-item"><a class="nav-link" href="{%url 'acercade'%}">Acerca de</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'menu'%}">Productos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'contacto'%}">Contacto</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{%url 'administracion'%}">Administración</a></li>
-                    </ul>
+                        <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'administracion'%}">Administración</a></li>
+                        <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'usuarios'%}">Usuario</a></li>                    </ul>
                 </div>
             </div>
         </nav>
     </header>
 
+    <section style="height: 60vh">
     <div class="container margen5-top">
         <div class="row">
             <div class="col-12 col-lg-6 card centrar">
-                <div class="card-body sin-margen-bottom">
+                <div class="card-body centrar sin-margen-bottom"> <!--centrado de form-->
                     <form enctype="multipart/form-data" method="post" action="" id="formulario">
                         {% csrf_token %}
                         <table>
@@ -57,34 +58,39 @@
                                 {{ form.as_table }}
                             </div>
                         </table>
-                        <input type="submit" class="btn btn-primary col-2" id="agregar" value="Agregar">
-                        <input type="reset" class="btn btn-danger col-2" id="limnpiar" value="Limpiar">
+                        <div class="container margen5-top margen5-bottom">
+                            <input type="submit" class="btn btn-success btn-l" id="agregar" value="Agregar">
+                            <input type="reset" class="btn btn-primary btn-l" id="limnpiar" value="Limpiar">
+                            <a href="{% url 'administracion' %}" class="btn btn-danger btn-l" id="cancelar" name="cancelar">Volver</a>
+                        </div>
                         <div id="error" class="alert alert-success" role="alert">
                             {{ mensaje }}
                         </div>
                     </form>
                 </div>
             </div>
-
+        </div>
+    </div>
+    </section>
 
             <!--FOOTER-->
-            <!--en el footer faltan los links a redes sociales y los créditos de la página-->
+            <!--en el footer faltan los links a redes sociales-->
             <footer class="p-2 footerColor bordeRedonTop">
                 <div class="container p-1">
                     <div class="row justify-content-center">
                         <span class="centrar"> 
-                <a href="..."><i class="bi bi-instagram centrar text-white"></i></a> 
-                <a href="..."><i class="bi bi-facebook centrar text-white"></i></a> 
-                <a href="..."><i class="bi bi-twitter centrar text-white"></i></a> 
-                </span>
+                            <a href="" onclick="alerta()"><i class="bi bi-instagram centrar text-white"></i></a> 
+                            <a href="" onclick="alerta()"><i class="bi bi-facebook centrar text-white"></i></a> 
+                            <a href="" onclick="alerta()"><i class="bi bi-twitter centrar text-white"></i></a> 
+                        </span>
                     </div>
                     <div class="row justify-content-center p-2">
                         <span class="centrar">
-                <a href="{% url 'home' %}">Inicio</a>
-                <a href="{% url 'acercade' %}">Acerca de</a>
-                <a href="{% url 'menu' %}">Productos</a>
-                <a href="{% url 'contacto' %}">Contacto</a>
-                </span>
+                        <a href="{% url 'home' %}">Inicio</a>
+                        <a href="{% url 'acercade' %}">Acerca de</a>
+                        <a href="{% url 'menu' %}">Productos</a>
+                        <a href="{% url 'contacto' %}">Contacto</a>
+                        </span>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col text-center font-weight-light text-white sin-margen-bottom">
