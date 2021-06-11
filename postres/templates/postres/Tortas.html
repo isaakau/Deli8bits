@@ -66,6 +66,7 @@
     <section class="container centrar">
         <div class="row p-3">
             {% for pro in productos%}
+
             <!--el pro es como el i en las iteraciones-->
             <!-- pasa el nombre de la imagen a string y le da un nombre de variable-->
             {% with pro.IMAGEN_PROD|stringformat:"s" as v_img%}
