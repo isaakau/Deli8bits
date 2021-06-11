@@ -1,5 +1,7 @@
 from django.urls import path
-from .views import home, contacto, acercade, menu, chocolateria, postres, tortas, administracion, form_prod, form_mod_prod, form_del_prod
+from .views import home, contacto, acercade, menu, chocolateria, postres, tortas, administracion, usuarios, form_prod, form_mod_prod, form_del_prod,form_reg_usuario, registro
+from django.conf import settings 
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('',home,name='home'),
@@ -10,7 +12,10 @@ urlpatterns = [
     path('postres',postres,name='postres'),
     path('tortas',tortas,name='tortas'),
     path('administracion',administracion,name='administracion'),
-    path('form_prod',form_prod, name='form_prod'),
+    path('usuario',usuarios,name='usuarios'),
+    path('agregar-producto',form_prod, name='form_prod'),
     path('modificar-producto/<id>',form_mod_prod,name='form_mod_prod'),
     path('eliminar-producto/<id>',form_del_prod,name='form_del_prod'),
-] #este es el primero que se ejecutas cuando sta vacío
+    path('agregar-usuario',form_reg_usuario,name='form_reg_usuario'),
+    path('registro-usuario',registro,name='registro'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

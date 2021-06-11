@@ -14,10 +14,12 @@ class CAT_PRODUCTO(models.Model):
 class PRODUCTO(models.Model):
     ID_PROD = models.CharField(max_length=4,primary_key=True, verbose_name='Id')
     NOM_PROD = models.CharField(max_length=30, verbose_name='Nombre')
-    DESC_PROD = models.CharField(max_length=100,default=0, blank=True, verbose_name='Descripción')
+    DESC_PROD = models.CharField(max_length=200, blank=True, verbose_name='Descripción')
     PRECIO_PROD = models.IntegerField(null=True,verbose_name='Precio')
-    CAT_PRODUCTO = models.ForeignKey(CAT_PRODUCTO, on_delete=models.CASCADE)
-    IMAGEN_PROD = models.ImageField (upload_to='static/postres/img',null=True, blank=True,verbose_name='Imagen')#campo de imagen
+    UNIDAD_PROD = models.CharField(max_length=30, verbose_name='Unidad')
+    CAT_PRODUCTO = models.ForeignKey(CAT_PRODUCTO, on_delete=models.CASCADE, verbose_name='Categoria')
+    IMAGEN_PROD = models.ImageField (null=True,verbose_name='Imagen')#campo de imagen
+    
     def __str__(self):
         return self.NOM_PROD
     

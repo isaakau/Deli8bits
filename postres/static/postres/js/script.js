@@ -68,3 +68,13 @@ $(document).ready(function() {
         });
     });
 });
+
+
+//alertas
+$(document).on('click', '.eliminar', function(){
+    return confirm('¿Esta seguro que desea eliminar este producto?');
+})
+
+function alerta() {
+    alert('No disponible 😔');
+}
