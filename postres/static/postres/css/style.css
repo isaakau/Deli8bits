@@ -136,7 +136,7 @@ a:hover {
 }
 
 .alto {
-    height: 20vh;
+    height: 60vh;
 }
 
 .ancho40 {
@@ -154,6 +154,7 @@ a:hover {
 .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 2rem;
     padding-left: 2rem;
+    margin: 2px;
     color: white;
 }
 
@@ -345,13 +346,28 @@ textarea.valid {
     border-width: 2px;
 }
 
-.tabla-color{
+.tabla-color {
     background-color: #402A2C;
 }
 
-.p-tabla{
+.p-tabla {
     color: #F6D8AE;
     font-weight: normal;
     font-size: 1.4rem;
     border-color: #F6D8AE;
+}
+
+/* Margen abajo en form */
+.margen5-bottom {
+    margin-bottom: 5%;
+}
+
+.img-tamaño{
+    width: 50px; 
+    height: 50px;
+}
+
+.img-mediano{
+    width: 30px; 
+    height: 30px;
 }

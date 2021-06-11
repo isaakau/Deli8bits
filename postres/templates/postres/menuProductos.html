@@ -37,7 +37,8 @@
                             <li class="nav-item"><a class="nav-link" href="{%url 'acercade'%}">Acerca de</a></li>
                             <li class="nav-item"><a class="nav-link" href="{%url 'menu'%}">Productos</a></li>
                             <li class="nav-item"><a class="nav-link" href="{%url 'contacto'%}">Contacto</a></li>
-                        </ul>
+                            <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'administracion'%}">Administración</a></li>
+                            <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'usuarios'%}">Usuario</a></li>                        </ul>
                     </div>
                 </div>
             </nav>
@@ -59,19 +60,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-4 centrar margen5-top" style="width: 20rem; padding: 0%;">
-                        <div class="card">
-                            <div class="card-body">
-                                <a href="{% url 'postres' %}">
-                                    <img src="{% static 'postres/img/postre.png'%}" alt="Postre" class="w-100">
-                                    <p class="pMenu">Postres</p>
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="col-4 centrar margen5-top" style="width: 20rem; padding: 0%;">
                         <div class="card">
                             <div class="card-body">
@@ -79,7 +67,16 @@
                                     <img src="{% static 'postres/img/torta.png'%}" alt="Torta" class="w-100">
                                     <p class="pMenu">Tortas</p>
                                 </a>
-
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 centrar margen5-top" style="width: 20rem; padding: 0%;">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="{% url 'postres' %}">
+                                    <img src="{% static 'postres/img/postre.png'%}" alt="Postre" class="w-100">
+                                    <p class="pMenu">Postres</p>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -87,38 +84,16 @@
             </div>
         </section>
 
-        <!-- Listado Provisorio -->
-        <table border="1">Lista de Postres
-            <tr>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-            </tr>
-            {% for pro in productos%} <!--el pro es como el i en las iteraciones-->
-            <tr>
-                <td>{{pro.ID_PROD}}</td>
-                <td>{{pro.NOM_PROD}}</td>
-                <td>{{pro.DESC_PROD}}</td>
-                <td>{{pro.PRECIO_PROD}}</td>
-                <td><a href="{% url 'form_mod_producto' pro.ID_PROD %}">Modificar</a></td>
-                <td><a href="{% url 'form_del_producto' pro.ID_PROD %}">Eliminar</a></td>
-            </tr>
-            {% endfor %}
-        </table>
-        <div>
-            <a href="{% url 'form_producto' %}">Agregar producto</a>
-        </div>
-
         <!--FOOTER-->
-        <!--en el footer faltan los links a redes sociales y los créditos de la página-->
-        <footer class="p-2 footerColor bordeRedonTop bottom" id="footer-h-prod">
+        <!--en el footer faltan los links a redes sociales-->
+        <footer class="p-2 footerColor bordeRedonTop">
             <div class="container p-1">
                 <div class="row justify-content-center">
                     <span class="centrar"> 
-                <a href="..."><i class="bi bi-instagram centrar text-white"></i></a> 
-                <a href="..."><i class="bi bi-facebook centrar text-white"></i></a> 
-                <a href="..."><i class="bi bi-twitter centrar text-white"></i></a> 
-                </span>
+                        <a href="" onclick="alerta()"><i class="bi bi-instagram centrar text-white"></i></a> 
+                        <a href="" onclick="alerta()"><i class="bi bi-facebook centrar text-white"></i></a> 
+                        <a href="" onclick="alerta()"><i class="bi bi-twitter centrar text-white"></i></a> 
+                    </span>
                 </div>
                 <div class="row justify-content-center p-1">
                     <span class="centrar">
@@ -140,6 +115,7 @@
 
     <!--Popper y Bootstraps juntos-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="{%static 'postres/js/script.js'%}"></script>
 </body>
 
 </html>

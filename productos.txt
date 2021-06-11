@@ -1,0 +1,120 @@
+*****CHOCOLATES*****
+
+C001
+Huevito MyM’s
+Delicioso bombón de chocolate blanco relleno de trufa y MyM’s.
+875
+c/u
+Chocolate
+myms.jpg
+
+C002
+Huevito Cookies’n cream
+Bombón de chocolate de leche relleno de trocitos de Oreo y crema de chocolate.
+875
+c/u
+Chocolate
+cookiesncreme.jpg
+
+C003
+Huevito Almendra
+Bombón de chocolate de leche relleno de gianduja de almendra y trocitos de almendra.
+875
+c/u
+Chocolate
+almendra.jpg
+
+C004
+Huevito Dulce de leche
+Bombón de chocolate bitter relleno de dulce de leche al chocolate blanco.
+875
+c/u
+Chocolate
+dulcedeleche.jpg
+
+C005
+Bombón mango
+Bombón de chocolate amargo relleno de crema de mango.
+1800
+100gr
+Chocolate
+bombonmango.jpg
+
+C006
+Bombón Avellana
+Bombón garrapiñado de avellana confitada.
+2000
+100gr
+Chocolate
+avellana.jpg
+
+
+
+*****POSTRES*****
+
+P001
+Streusel de Berries
+Deliciosa masa de tarta crocante rellena con crema pastelera de berries y frutas frescas, coronada con migas de galleta.
+2000
+Formato Individual
+Postre
+postre1.jpeg
+
+P002
+Pie de Mango
+Deliciosa masa de tarta crocante rellena con crema de mango y decorada con merengue semiseco.
+2000
+Formato Individual
+Postre
+postre4.jpeg
+
+P003
+Tiramisú
+Postre clásico italiano compuesto de una ligera crema de queso, intercalada con galletas de champaña en almíbar de café-amaretto, decorado con cacao.
+1500
+Formato Individual
+Postre 
+postre3.jpeg
+
+P004
+Mousse de Chocolate
+Postre aireado en base a crema de leche y chocolate bitter, con topping de almendras confitadas.
+1500
+Formato Individual
+Postre 
+postre2.jpeg
+
+
+*****TORTAS*****
+
+T001
+Torta helada lúcuma manjar
+Clásica torta helada compuesta por discos de merengue, crema de lúcuma y crema de manjar.
+18000
+15 personas
+Torta 
+lucuma.jpg
+
+T002
+Torta helada frutilla
+Clásica y deliciosa torta helada en base a crema de frutilla y mermelada casera, intercalada con discos de merengue.
+18000
+15 personas
+Torta 
+frutilla.jpg
+
+T003
+Torta panqueque mazapán
+Deliciosa torta elaborada con finas capas de bizcocho y relleno de chocolate bitter, manjar crocante y mazapán.
+25000
+18 personas
+Torta
+mazapan.jpg
+
+T004
+Torta holandesa
+Clásica torta de milhoja rellena con crema pastelera de vainilla, mermelada de cerezas y crema de manjar decorada con chantillí, hojitas de chocolate y marrasquinos.
+25000
+15 personas
+Torta 
+holandesa.jpg

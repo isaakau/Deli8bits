@@ -34,11 +34,12 @@
                 <!--secciones del menú-->
                 <div class="collapse navbar-collapse justify-content-center navText" id="navbarContenedor">
                     <ul class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link" href="{%url 'home'%}">Inicio</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{%url 'acercade'%}">Acerca de</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{%url 'menu'%}">Productos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{%url 'contacto'%}">Contacto</a></li>
-                    </ul>
+                        <li class="nav-item"><a class="nav-link" href="{%url 'home'%}">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{%url 'acercade'%}">Acerca de</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{%url 'menu'%}">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{%url 'contacto'%}">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'administracion'%}">Administración</a></li>
+                        <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'usuarios'%}">Usuario</a></li>                    </ul>
                 </div>
             </div>
         </nav>
@@ -63,128 +64,55 @@
     <!-- 1ra fila -->
     <section class="container">
         <div class="row p-3">
-            <div class="col-12 col-md-6 col-xl-4">
-                <div class="card cardColor centrar h-card-ch" style="width: 20rem; padding: 0%;">
-                    <img src="{% static 'postres/img/myms.jpg'%}" class="card-img-top" alt="postre1">
-                    <div class="card-body">
-                        <h4 class="cardTitulo">Huevito MyM’s</h4>
-                        <p class="card-text cardtextdesc">Delicioso bombón de chocolate blanco relleno de trufa y MyM’s.</p>
-                    </div>
-                    <div class="card-footer">
-                        <p class="card-text cardPrecio">$875</p>
-                        <p class="card-text cardNormTran">c/u</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-xl-4">
-                <div class="card cardColor centrar h-card-ch" style="width: 20rem; padding: 0%;">
-                    <img src="{% static 'postres/img/cookiesncreme.jpg'%}" class="card-img-top" alt="postre2">
-                    <div class="card-body">
-                        <h4 class="cardTitulo">Huevito Cookies’n cream</h4>
-                        <p class="card-text cardtextdesc">Bombón de chocolate de leche relleno de trocitos de Oreo y crema de chocolate.</p>
-                    </div>
-                    <div class="card-footer">
-                        <p class="card-text cardPrecio">$875</p>
-                        <p class="card-text cardNormTran">c/u</p>
+            {% for pro in productos%} <!--el pro es como el i en las iteraciones-->
+                <div class="col-12 col-md-6 col-xl-4 margen5-top">
+                    <div class="card cardColor centrar h-card-ch" style="width: 20rem; padding: 0%;">
+                        <img src="{{ pro.IMAGEN_PROD.url }}" class="card-img-top" alt="postre1">
+                        <div class="card-body">
+                            <h4 class="cardTitulo">{{pro.NOM_PROD}}</h4>
+                            <p class="card-text cardtextdesc">{{pro.DESC_PROD}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text cardPrecio">${{pro.PRECIO_PROD}}</p>
+                            <p class="card-text cardNormTran">{{pro.UNIDAD_PROD}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-xl-4">
-                <div class="card cardColor centrar h-card-ch" style="width: 20rem; padding: 0%;">
-                    <img src="{% static 'postres/img/almendra.jpg'%}" class="card-img-top" alt="postre3">
-                    <div class="card-body">
-                        <h4 class="cardTitulo">Huevito Almendra</h4>
-                        <p class="card-text cardtextdesc">Bombón de chocolate de leche relleno de gianduja de almendra y trocitos de almendra.</p>
-                    </div>
-                    <div class="card-footer">
-                        <p class="card-text cardPrecio">$875</p>
-                        <p class="card-text cardNormTran">c/u</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
 
-    <!-- 2da fila -->
-    <section class="container">
-        <div class="row p-3">
-            <div class="col-12 col-md-6 col-xl-4">
-                <div class="card cardColor centrar h-card-ch" style="width: 20rem; padding: 0%;">
-                    <img src="{% static 'postres/img/dulcedeleche.jpg'%}" class="card-img-top" alt="postre4">
-                    <div class="card-body">
-                        <h4 class="cardTitulo">Huevito Dulce de leche</h4>
-                        <p class="card-text cardtextdesc">Bombón de chocolate bitter relleno de dulce de leche al chocolate blanco.</p>
+            <!--FOOTER-->
+            <!--en el footer faltan los links a redes sociales y los créditos de la página-->
+            <footer class="p-2 footerColor bordeRedonTop">
+                <div class="container p-1">
+                    <div class="row justify-content-center">
+                        <span class="centrar"> 
+                            <a href="" onclick="alerta()"><i class="bi bi-instagram centrar text-white"></i></a> 
+                            <a href="" onclick="alerta()"><i class="bi bi-facebook centrar text-white"></i></a> 
+                            <a href="" onclick="alerta()"><i class="bi bi-twitter centrar text-white"></i></a> 
+                        </span>
                     </div>
-                    <div class="card-footer">
-                        <p class="card-text cardPrecio">$875</p>
-                        <p class="card-text cardNormTran">c/u</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-xl-4">
-                <div class="card cardColor centrar h-card-ch" style="width: 20rem; padding: 0%;">
-                    <img src="{% static 'postres/img/bombonmango.jpg' %}" class="card-img-top" alt="postre5">
-                    <div class="card-body">
-                        <h4 class="cardTitulo">Bombón mango</h4>
-                        <p class="card-text cardtextdesc">Bombón de chocolate amargo relleno de crema de mango.</p>
-                    </div>
-                    <div class="card-footer">
-                        <p class="card-text cardPrecio">$1800</p>
-                        <p class="card-text cardNormTran">100gr</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-xl-4">
-                <div class="card cardColor centrar h-card-ch" style="width: 20rem; padding: 0%;">
-                    <img src="{% static 'postres/img/avellana.jpg'%}" class="card-img-top" alt="postre6">
-                    <div class="card-body">
-                        <h4 class="cardTitulo">Bombón Avellana</h4>
-                        <p class="card-text cardtextdesc">Bombón garrapiñado de avellana confitada.</p>
-                    </div>
-                    <div class="card-footer ">
-                        <p class="card-text cardPrecio">$2000</p>
-                        <p class="card-text cardNormTran">100gr</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <!--FOOTER-->
-    <!--en el footer faltan los links a redes sociales y los créditos de la página-->
-    <footer class="p-2 footerColor bordeRedonTop">
-        <div class="container p-1">
-            <div class="row justify-content-center">
-                <span class="centrar"> 
-                <a href="..."><i class="bi bi-instagram centrar text-white"></i></a> 
-                <a href="..."><i class="bi bi-facebook centrar text-white"></i></a> 
-                <a href="..."><i class="bi bi-twitter centrar text-white"></i></a> 
-                </span>
-            </div>
-            <div class="row justify-content-center p-1">
-                <span class="centrar">
+                    <div class="row justify-content-center p-1">
+                        <span class="centrar">
                 <a href="{% url 'home' %}">Inicio</a>
                 <a href="{% url 'acercade' %}">Acerca de</a>
                 <a href="{% url 'menu' %}">Productos</a>
                 <a href="{% url 'contacto' %}">Contacto</a>
                 </span>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col text-center font-weight-light text-white sin-margen-bottom">
-                    <p>Realizado por PC IM DC</p>
-                    <p> © 2021 Todos los derechos reservados para Delibits.</p>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col text-center font-weight-light text-white sin-margen-bottom">
+                            <p>Realizado por PC IM DC</p>
+                            <p> © 2021 Todos los derechos reservados para Delibits.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </footer>
+            </footer>
 
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+            <!-- JavaScript Bundle with Popper -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+            <script src="{%static 'postres/js/script.js'%}"></script>
 </body>
 
 </html>

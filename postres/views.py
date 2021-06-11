@@ -1,6 +1,6 @@
-from django.shortcuts import render,redirect
-from .models import PRODUCTO
-from .forms import PRODUCTOForm
+from django.shortcuts import redirect, render
+from .models import PRODUCTO, USUARIO
+from .forms import PRODUCTOForm, USUARIOForm
 
 # Creamos nuestras Vistas o funciones
 def home(request): #home es una funcion que siempre se llama así pero sirve para llamar a la página de inicio
@@ -15,44 +15,99 @@ def acercade(request):
     return render(request, 'postres/acercade.html')
 
 def menu(request):
-    listaproductos = PRODUCTO.objects.all() #hace un Select * a la tabla
+    return render(request, 'postres/menuProductos.html')
+
+#MANTENEDOR DE PRODUCTOS 
+def administracion(request):
+    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO order by ID_PROD') 
     datos = {
         'productos':listaproductos
     }
-    return render(request, 'postres/menuProductos.html',datos)
+    return render(request, 'postres/administracion.html', datos)
 
-def form_PRODUCTO(request):
+#AGREGAR PRODUCTO
+def form_prod(request):
     datos = {
         'form':PRODUCTOForm()
     }
     if(request.method == 'POST'): #post guardar datos?
-        formulario = PRODUCTOForm(request.POST)
+        formulario = PRODUCTOForm(request.POST, request.FILES)
         if formulario.is_valid():
             formulario.save()
-            datos['mensaje'] = 'Guardados correctamente'
-    return render(request,'postres/form_producto.html',datos)
+            datos['mensaje'] = 'Guardado correctamente'
+    return render(request,'postres/form_prod.html',datos)
 
-def form_mod_PRODUCTO(request,id):
+#MODIFICAR PRODUCTO
+def form_mod_prod(request,id):
     producto = PRODUCTO.objects.get(ID_PROD = id)
     datos = {
         'form':PRODUCTOForm(instance=producto)
     }
+    
     if(request.method == 'POST'): #post guardar datos?
-        formulario = PRODUCTOForm(data=request.POST, instance=producto)
+        formulario = PRODUCTOForm(request.POST, request.FILES, instance=producto)
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Modificados correctamente'
-    return render(request,'postres/form_mod_producto.html',datos)    
+    return render(request,'postres/form_mod_prod.html',datos)    
 
-def form_del_PRODUCTO(id):
+#ELIMINAR PRODUCTO
+def form_del_prod(request, id):
     producto = PRODUCTO.objects.get(ID_PROD = id)
     producto.delete()
-    return redirect(to="menu")
+    return redirect(to="administracion")
+
+#LISTAR SOLO CHOCOLATES
 def chocolateria(request):
-    return render(request, 'postres/Chocolateria.html')
+    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 1 order by ID_PROD') 
+    datos = {
+        'productos':listaproductos
+    }
+    return render(request, 'postres/Chocolateria.html', datos)
 
+#LISTAR SOLO LOS POSTRES
 def postres(request):
-    return render(request, 'postres/Postres.html')
+    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 2 order by ID_PROD') 
+    datos = {
+        'productos':listaproductos
+    }
+    return render(request, 'postres/Postres.html',datos)
 
+#LISTAR SOLO TORTAS
 def tortas(request):
-    return render(request, 'postres/Tortas.html')    
+    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 3 order by ID_PROD') 
+    datos = {
+        'productos':listaproductos
+    }
+    return render(request, 'postres/Tortas.html',datos)   
+
+#LISTA DE USUARIOS 
+def usuarios(request):
+    listausuarios = USUARIO.objects.raw('SELECT * FROM POSTRES_USUARIO order by RUT_USU') 
+    datos = {
+        'usuarios':listausuarios
+    }
+    return render(request, 'postres/usuarios.html', datos) 
+
+#REGISTRAR USUARIO
+def form_reg_usuario(request):
+    datos = {
+        'form':USUARIOForm()
+    }
+    if(request.method == 'POST'): #post guardar datos
+        formulario = USUARIOForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = 'Registrado correctamente'
+    return render(request,'postres/form_reg_usuario.html',datos)
+
+def registro(request):
+    datos = {
+        'form':USUARIOForm()
+    }
+    if(request.method == 'POST'): #post guardar datos
+        formulario = USUARIOForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = 'Registrado correctamente'
+    return render(request,'postres/registro.html',datos)
