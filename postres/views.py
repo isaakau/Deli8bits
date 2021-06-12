@@ -111,3 +111,23 @@ def registro(request):
             formulario.save()
             datos['mensaje'] = 'Registrado correctamente'
     return render(request,'postres/registro.html',datos)
+
+#MODIFICAR USUARIO
+def form_reg_mod_usuario(request,id):
+    usuario = USUARIO.objects.get(RUT_USU = id)
+    datos = {
+        'form':USUARIOForm(instance=usuario)
+    }
+    
+    if(request.method == 'POST'): #post guardar datos?
+        formulario = USUARIOForm(request.POST, request.FILES, instance=usuario)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = 'Modificados correctamente'
+    return render(request,'postres/form_reg_mod_usuario.html',datos)      
+
+#ELIMINAR PRODUCTO
+def form_reg_del_usuario(request, id):
+    usuario = USUARIO.objects.get(RUT_USU = id)
+    usuario.delete()
+    return redirect(to="usuarios")
