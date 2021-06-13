@@ -17,7 +17,7 @@ def acercade(request):
 def menu(request):
     return render(request, 'postres/menuProductos.html')
 
-#MANTENEDOR DE PRODUCTOS 
+#MANTENEDOR DE PRODUCTOS (Listar)
 def administracion(request):
     listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO order by ID_PROD') 
     datos = {
@@ -35,6 +35,9 @@ def form_prod(request):
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Guardado correctamente'
+        else:
+            formulario = PRODUCTOForm()
+            datos['mensaje'] = 'ERROR: No se ha guardado el producto, intente nuevamente'
     return render(request,'postres/form_prod.html',datos)
 
 #MODIFICAR PRODUCTO
@@ -49,6 +52,9 @@ def form_mod_prod(request,id):
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Modificados correctamente'
+        else:
+            formulario = PRODUCTOForm()
+            datos['mensaje'] = 'ERROR: No se ha modificado el producto, intente nuevamente'
     return render(request,'postres/form_mod_prod.html',datos)    
 
 #ELIMINAR PRODUCTO
@@ -99,6 +105,9 @@ def form_reg_usuario(request):
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Registrado correctamente'
+        else:
+            formulario = USUARIOForm()
+            datos['mensaje'] = 'ERROR: No se ha registrado, intente nuevamente'
     return render(request,'postres/form_reg_usuario.html',datos)
 
 def registro(request):
@@ -110,6 +119,9 @@ def registro(request):
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Registrado correctamente'
+        else:
+            formulario = USUARIOForm()
+            datos['mensaje'] = 'ERROR: No se ha registrado, intente nuevamente'
     return render(request,'postres/registro.html',datos)
 
 #MODIFICAR USUARIO
@@ -124,6 +136,9 @@ def form_reg_mod_usuario(request,id):
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Usuario Modificado correctamente'
+        else:
+            formulario = USUARIOForm()
+            datos['mensaje'] = 'ERROR: No se ha modificado, intente nuevamente'
     return render(request,'postres/form_reg_mod_usuario.html',datos)      
 
 #ELIMINAR USUARIO
