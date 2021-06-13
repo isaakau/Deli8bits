@@ -33,7 +33,6 @@ def form_prod(request):
     if(request.method == 'POST'): #post guardar datos?
         formulario = PRODUCTOForm(request.POST, request.FILES)
         if formulario.is_valid():
-            formulario.IMAGEN_PROD == '/postres/static/postres/img/'|formulario.ID_PROD|'.jpg'
             formulario.save()
             datos['mensaje'] = 'Guardado correctamente'
         else:
@@ -53,6 +52,7 @@ def form_mod_prod(request,id):
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Modificados correctamente'
+            return redirect(to="administracion")
         else:
             formulario = PRODUCTOForm()
             datos['mensaje'] = 'ERROR: No se ha modificado el producto, intente nuevamente'
@@ -137,6 +137,7 @@ def form_reg_mod_usuario(request,id):
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Usuario Modificado correctamente'
+            return redirect(to= "usuarios")
         else:
             formulario = USUARIOForm()
             datos['mensaje'] = 'ERROR: No se ha modificado, intente nuevamente'
