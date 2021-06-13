@@ -123,7 +123,7 @@ def form_reg_mod_usuario(request,id):
         formulario = USUARIOForm(request.POST, instance=usuario)
         if formulario.is_valid():
             formulario.save()
-            datos['mensaje'] = 'Modificados correctamente'
+            datos['mensaje'] = 'Usuario Modificado correctamente'
     return render(request,'postres/form_reg_mod_usuario.html',datos)      
 
 #ELIMINAR USUARIO
