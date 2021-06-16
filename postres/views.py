@@ -66,7 +66,7 @@ def form_del_prod(request, id):
 
 #LISTAR SOLO CHOCOLATES
 def chocolateria(request):
-    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 1 order by ID_PROD') 
+    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 1 order by NOM_PROD') 
     datos = {
         'productos':listaproductos
     }
@@ -74,7 +74,7 @@ def chocolateria(request):
 
 #LISTAR SOLO LOS POSTRES
 def postres(request):
-    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 2 order by ID_PROD') 
+    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 2 order by NOM_PROD') 
     datos = {
         'productos':listaproductos
     }
@@ -82,7 +82,7 @@ def postres(request):
 
 #LISTAR SOLO TORTAS
 def tortas(request):
-    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 3 order by ID_PROD') 
+    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 3 order by NOM_PROD') 
     datos = {
         'productos':listaproductos
     }
