@@ -4,7 +4,7 @@ from django.db import models
 
 #modelo para CATEGORIA DEL PRODUCTO 
 class CAT_PRODUCTO(models.Model):
-    ID_CATPROD = models.IntegerField(primary_key=True,max_length=2,verbose_name='ID de la categoria')
+    ID_CATPROD = models.IntegerField(primary_key=True,verbose_name='ID de la categoria')
     NOM_CATPROD = models.CharField(max_length=50,verbose_name='Nombre de la categoria')
 
     def __str__(self):
@@ -22,6 +22,8 @@ class PRODUCTO(models.Model):
     
     def __str__(self):
         return self.NOM_PROD
+    
+    
 
 #crear tabla usuario para registrar usuarios, por mientras 
 class USUARIO(models.Model):

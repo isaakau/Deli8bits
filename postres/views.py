@@ -17,7 +17,7 @@ def acercade(request):
 def menu(request):
     return render(request, 'postres/menuProductos.html')
 
-#MANTENEDOR DE PRODUCTOS 
+#MANTENEDOR DE PRODUCTOS (Listar)
 def administracion(request):
     listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO order by ID_PROD') 
     datos = {
@@ -35,6 +35,9 @@ def form_prod(request):
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Guardado correctamente'
+        else:
+            formulario = PRODUCTOForm()
+            datos['mensaje'] = 'ERROR: No se ha guardado el producto, intente nuevamente'
     return render(request,'postres/form_prod.html',datos)
 
 #MODIFICAR PRODUCTO
@@ -49,6 +52,10 @@ def form_mod_prod(request,id):
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Modificados correctamente'
+            return redirect(to="administracion")
+        else:
+            formulario = PRODUCTOForm()
+            datos['mensaje'] = 'ERROR: No se ha modificado el producto, intente nuevamente'
     return render(request,'postres/form_mod_prod.html',datos)    
 
 #ELIMINAR PRODUCTO
@@ -59,7 +66,7 @@ def form_del_prod(request, id):
 
 #LISTAR SOLO CHOCOLATES
 def chocolateria(request):
-    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 1 order by ID_PROD') 
+    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 1 order by NOM_PROD') 
     datos = {
         'productos':listaproductos
     }
@@ -67,7 +74,7 @@ def chocolateria(request):
 
 #LISTAR SOLO LOS POSTRES
 def postres(request):
-    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 2 order by ID_PROD') 
+    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 2 order by NOM_PROD') 
     datos = {
         'productos':listaproductos
     }
@@ -75,7 +82,7 @@ def postres(request):
 
 #LISTAR SOLO TORTAS
 def tortas(request):
-    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 3 order by ID_PROD') 
+    listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 3 order by NOM_PROD') 
     datos = {
         'productos':listaproductos
     }
@@ -99,6 +106,9 @@ def form_reg_usuario(request):
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Registrado correctamente'
+        else:
+            formulario = USUARIOForm()
+            datos['mensaje'] = 'ERROR: No se ha registrado, intente nuevamente'
     return render(request,'postres/form_reg_usuario.html',datos)
 
 def registro(request):
@@ -110,6 +120,9 @@ def registro(request):
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Registrado correctamente'
+        else:
+            formulario = USUARIOForm()
+            datos['mensaje'] = 'ERROR: No se ha registrado, intente nuevamente'
     return render(request,'postres/registro.html',datos)
 
 #MODIFICAR USUARIO
@@ -123,7 +136,11 @@ def form_reg_mod_usuario(request,id):
         formulario = USUARIOForm(request.POST, instance=usuario)
         if formulario.is_valid():
             formulario.save()
-            datos['mensaje'] = 'Modificados correctamente'
+            datos['mensaje'] = 'Usuario Modificado correctamente'
+            return redirect(to= "usuarios")
+        else:
+            formulario = USUARIOForm()
+            datos['mensaje'] = 'ERROR: No se ha modificado, intente nuevamente'
     return render(request,'postres/form_reg_mod_usuario.html',datos)      
 
 #ELIMINAR USUARIO
