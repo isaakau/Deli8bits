@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Vehículo</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'postres/css/style.css'%}">
+</head>
+<body>
+    <div class="row">
+        <form method="post" action="" id="formulario">
+            {% csrf_token %}
+            <div class="form_group">
+                {{ form.as_table }}
+            </div>
+            <input type="submit" class="btn btn-danger" id="agregar" value="Agregar">
+            <input type="reset" class="btn btn-primary" id="limnpiar" value="Limpiar">
+            <div id="error" class="alert alert-success" role="alert">
+                {{ mensaje }}
+            </div>
+        </form>
+    </div>
+
+    <script src="ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+    <script src="cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js "></script>
+    <script src="maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js "></script>
+</body>
+</html>
