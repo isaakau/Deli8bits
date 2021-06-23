@@ -25,7 +25,7 @@ def categoria_producto(request):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-#DETALLES DE LAS CATEGORIAS EN JSON 
+#DETALLES DE LAS CATEGORIAS EN JSON (OBTENER, MODIFICAR Y BORRAR)
 @api_view(['GET','PUT','DELETE'])
 def detalle_categoria(request,id):
     try:
