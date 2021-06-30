@@ -148,3 +148,7 @@ def form_reg_del_usuario(request, id):
     usuario = USUARIO.objects.get(RUT_USU = id)
     usuario.delete()
     return redirect(to="usuarios")
+
+#CATEGORIAS
+def admin_categoria(request):
+    return render(request, 'postres/admin_categoria.html')

@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'deli8Bits.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle', #ok
-        'NAME': '127.0.0.1:1521/xe', #xe|XEPDB1
+        'NAME': '127.0.0.1:1521/XEPDB1', #xe|XEPDB1
         'USER':'PRODD8B',
         'PASSWORD': 'deli',
         'TEST':{ #ok

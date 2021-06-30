@@ -44,5 +44,7 @@ def detalle_categoria(request,id):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
-        categoria.delete()
-        return Response(status=status.HTTP_204_NOT_CONTENT)            
+        if(categoria.delete()):
+            return Response(status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_204_NOT_CONTENT)            
