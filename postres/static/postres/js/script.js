@@ -78,3 +78,14 @@ $(document).on('click', '.eliminar', function(){
 function alerta() {
     alert('No disponible 😔');
 }
+
+
+//Consumo de Propia API
+$(document).ready(function() {
+    $.getJSON("http://127.0.0.1:8000/api/categoria-producto", function(json) {
+        $.each(json, function(i, item) {
+            $('#propia-api').append("<tr><td>" + item.ID_CATPROD + "</td><td>" +
+            item.NOM_CATPROD + "</td></tr>");
+        });
+    });
+});
