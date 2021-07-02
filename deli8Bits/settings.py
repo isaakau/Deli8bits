@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
+import rest_framework
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,6 +30,8 @@ DEBUG = True #se supone que esto debería cambiarse a falso en produccion
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 # Application definition
 
@@ -39,9 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'postres',
-    'rest_framework',
+    'rest_framework', #para generar API
     'rest_producto',
     'rest_categoria',
+    'rest_framework.authtoken', #para utilizar token de seguridad
 ]
 
 MIDDLEWARE = [
@@ -71,6 +76,12 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+    'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 WSGI_APPLICATION = 'deli8Bits.wsgi.application'
 

@@ -1,6 +1,8 @@
 from django.shortcuts import redirect, render
 from .models import PRODUCTO, USUARIO
 from .forms import PRODUCTOForm, USUARIOForm
+import requests
+
 
 # Creamos nuestras Vistas o funciones
 def home(request): #home es una funcion que siempre se llama así pero sirve para llamar a la página de inicio
@@ -67,10 +69,11 @@ def form_del_prod(request, id):
 #LISTAR SOLO CHOCOLATES
 def chocolateria(request):
     listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 1 order by NOM_PROD') 
+        
     datos = {
         'productos':listaproductos
     }
-    return render(request, 'postres/Chocolateria.html', datos)
+    return render(request, 'postres/chocolateria.html',datos)
 
 #LISTAR SOLO LOS POSTRES
 def postres(request):
@@ -152,3 +155,7 @@ def form_reg_del_usuario(request, id):
 #CATEGORIAS
 def admin_categoria(request):
     return render(request, 'postres/admin_categoria.html')
+
+#LOGIN
+def login_usuario(request):
+    return render(request, 'postres/login.html')

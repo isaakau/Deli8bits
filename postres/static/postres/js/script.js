@@ -83,9 +83,12 @@ function alerta() {
 //Consumo de Propia API
 $(document).ready(function() {
     $.getJSON("http://127.0.0.1:8000/api/categoria-producto", function(json) {
+        //var id = response.order.ID_CATPROD; 
         $.each(json, function(i, item) {
             $('#propia-api').append("<tr><td>" + item.ID_CATPROD + "</td><td>" +
             item.NOM_CATPROD + "</td></tr>");
         });
+    }).fail(function() {
+        console.log('Error al consumir la API!');
     });
 });
