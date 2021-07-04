@@ -371,3 +371,20 @@ textarea.valid {
     width: 30px; 
     height: 30px;
 }
+
+.letra-form {
+    color: #402A2C;
+    font-weight: normal;
+    font-size: medium;
+    justify-content: left;
+    text-align: initial;
+}
+
+.letra1{
+    font-size: large;
+    color: #ffff;
+    background-color: #FF85BE;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    margin: 2px;
+}

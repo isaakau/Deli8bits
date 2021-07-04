@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, contacto, acercade, menu, chocolateria, postres, tortas, administracion, usuarios, form_prod, form_mod_prod, form_del_prod,form_reg_usuario,form_reg_mod_usuario, form_reg_del_usuario,registro,admin_categoria, login_usuario
+from .views import home, contacto, acercade, menu, chocolateria, postres, tortas, administracion, usuarios, form_prod, form_mod_prod, form_del_prod,form_reg_usuario,form_reg_mod_usuario, form_reg_del_usuario,registro,admin_categoria, loginUsu
 from django.conf import settings 
 from django.conf.urls.static import static
 
@@ -21,5 +21,5 @@ urlpatterns = [
     path('eliminar-usuario/<id>',form_reg_del_usuario,name='form_reg_del_usuario'),
     path('registro-usuario',registro,name='registro'),
     path('admin-categoria',admin_categoria,name='admin_categoria'),
-    path('cuentas/login',login_usuario,name='login_usuario'),
+    path('login',loginUsu,name='loginUsu'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import serializers, status
+from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
@@ -8,12 +8,16 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
 from rest_framework.authtoken.models import Token
 
+#Login por django sin Oracle? tira el token que se guarda en la BD ?
 @api_view(['POST'])
 def login(request):
-    data = JSONParser().parse(request)
-
+    data = JSONParser().parse(request) #creo que esto hace que sea en JSON                  
+    print('Holaaaaaaaaaaaaa')
     username = data['username'] #lo que esta entre comillas tiene que ser lo mismo que en el HTML
     password = data['password']
+    print(data)
+    
+    #se valida usuario 
     try:
         user = User.objects.get(username=username)
     except User.DoesNotExist:
@@ -25,4 +29,5 @@ def login(request):
     
     #crear o recuperar el token
     token, created = Token.objects.get_or_create(user=user)
+    print(token.key)
     return Response(token.key)

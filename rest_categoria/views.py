@@ -12,7 +12,7 @@ from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 @csrf_exempt
 @api_view(['GET','POST'])
-@permission_classes((IsAuthenticated,))
+@permission_classes((IsAuthenticated,)) #solicita que el usuario este authenticado 
 #CATEGORIAS DE PRODUCTOS EN JSON 
 def categoria_producto(request):
     if request.method == 'GET':

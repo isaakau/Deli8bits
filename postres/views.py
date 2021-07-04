@@ -1,7 +1,8 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 from .models import PRODUCTO, USUARIO
-from .forms import PRODUCTOForm, USUARIOForm
-import requests
+from .forms import CustomUserForm, PRODUCTOForm, USUARIOForm
+from django.contrib.auth import login, authenticate
 
 
 # Creamos nuestras Vistas o funciones
@@ -114,19 +115,20 @@ def form_reg_usuario(request):
             datos['mensaje'] = 'ERROR: No se ha registrado, intente nuevamente'
     return render(request,'postres/form_reg_usuario.html',datos)
 
+#Registrar Usuario en django
 def registro(request):
     datos = {
-        'form':USUARIOForm()
+        'form':CustomUserForm()
     }
     if(request.method == 'POST'): #post guardar datos
-        formulario = USUARIOForm(request.POST)
+        formulario = CustomUserForm(request.POST)
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Registrado correctamente'
         else:
-            formulario = USUARIOForm()
+            formulario = CustomUserForm()
             datos['mensaje'] = 'ERROR: No se ha registrado, intente nuevamente'
-    return render(request,'postres/registro.html',datos)
+    return render(request,'registration/registro.html',datos)
 
 #MODIFICAR USUARIO
 def form_reg_mod_usuario(request,id):
@@ -156,6 +158,7 @@ def form_reg_del_usuario(request, id):
 def admin_categoria(request):
     return render(request, 'postres/admin_categoria.html')
 
-#LOGIN
-def login_usuario(request):
-    return render(request, 'postres/login.html')
+#login
+def loginUsu(request):
+    
+    return render(request, 'registration/login.html')

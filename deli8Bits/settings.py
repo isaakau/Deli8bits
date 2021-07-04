@@ -30,6 +30,7 @@ DEBUG = True #se supone que esto debería cambiarse a falso en produccion
 
 ALLOWED_HOSTS = []
 
+#para login 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
@@ -47,7 +48,10 @@ INSTALLED_APPS = [
     'rest_producto',
     'rest_categoria',
     'rest_framework.authtoken', #para utilizar token de seguridad
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,7 +83,7 @@ TEMPLATES = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES':[
-    'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ],
 }
 
