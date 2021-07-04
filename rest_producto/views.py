@@ -7,10 +7,11 @@ from django.views.decorators.csrf import csrf_exempt
 from postres.models import PRODUCTO
 from rest_producto.serializers import PRODUCTOSerializer
 # Create your views here.
-@csrf_exempt
-@api_view(['GET', 'POST'])
+
 
 #LISTA TODOS LOS PRODUCTOS EN JSON 
+@csrf_exempt
+@api_view(['GET', 'POST'])
 def lista_productos(request):
     if request.method == 'GET':
         producto = PRODUCTO.objects.all()
@@ -45,4 +46,4 @@ def detalle_categoria(request,id):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
         producto.delete()
-        return Response(status=status.HTTP_204_NOT_CONTENT)       
+        return Response(status=status.HTTP_204_NOT_CONTENT)

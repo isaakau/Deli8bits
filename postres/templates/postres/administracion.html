@@ -40,17 +40,15 @@
                         <li class="nav-item"><a class="nav-link" href="{%url 'acercade'%}">Acerca de</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'menu'%}">Productos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'contacto'%}">Contacto</a></li>
-                        {% if request.user.is_authenticated and user.username == 'admin' %}
-                            <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'administracion'%}">Administración</a></li>
-                            <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'usuarios'%}">Usuario</a></li>                    
-                        {% endif %}                
+                        {% if perms.postres.view_producto %}
+                        <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'administracion'%}">Administración</a></li>
+                        <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'usuarios'%}">Usuario</a></li>
+                        {% endif %}
                     </ul>
                 </div>
                 {% if user.is_authenticated %}
-                    <a class="nav-link cardColor bordeRedonBottom bordeRedonTop" href="{% url 'logout' %}">Cerrar sesión</a>
-                {% else %}
-                    <a class="nav-link cardColor bordeRedonBottom bordeRedonTop" href="{% url 'login' %}">Iniciar Sesión</a>
-                {% endif%}
+                <a class="nav-link cardColor bordeRedonBottom bordeRedonTop" href="{% url 'logout' %}">Cerrar sesión</a> {% else %}
+                <a class="nav-link cardColor bordeRedonBottom bordeRedonTop" href="{% url 'login' %}">Iniciar Sesión</a> {% endif%}
             </div>
             </div>
         </nav>
@@ -60,17 +58,19 @@
                 <li class="nav-item col-12 col-sm">
                     <a class="nav-link active" aria-current="page" href="{% url 'administracion' %}">Productos</a>
                 </li>
+                {% if perms.postres.view_cat_producto %}
                 <li class="nav-item col-12 col-sm">
                     <a class="nav-link" href="{% url 'admin_categoria' %}">Categorías</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </header>
 
     <div class="container centrar margen5-top">
+        {% if perms.postres.add_producto %}
         <a href="{% url 'form_prod' %}" class="btn btn-light btn-lg bordeRedonTop bordeRedonBottom cardColor margen5-bottom" role="button">
-            <img class="img-tamaño m-1" src="{% static 'postres/img/plus(1).png' %}" alt="mas">
-            Agregar producto</a>
+            <img class="img-tamaño m-1" src="{% static 'postres/img/plus(1).png' %}" alt="mas"> Agregar producto</a> {% endif %}
         <div class="row">
             <div class="col-sm-12 card">
                 <div class="card-body sin-margen-bottom">
@@ -84,12 +84,15 @@
                                 <th scope="col">Precio</th>
                                 <th scope="col">Unidad</th>
                                 <th scope="col">Categoría</th>
+                                {% if perms.postres.change_producto %}
                                 <th scope="col">Modificar</th>
+                                {% endif %} {% if perms.postres.delete_producto %}
                                 <th scope="col">Eliminar</th>
+                                {% endif %}
                             </tr>
                         </thead>
                         <tbody>
-                            {% for pro in productos%} 
+                            {% for pro in productos%}
                             <tr>
                                 <td scope="col">{{pro.ID_PROD}}</td>
                                 <td scope="col">
@@ -102,13 +105,15 @@
                                     <td scope="col">{{pro.PRECIO_PROD}}</td>
                                     <td scope="col">{{pro.UNIDAD_PROD}}</td>
                                     <td scope="col">{{pro.CAT_PRODUCTO}}</td>
-
+                                    {% if perms.postres.change_producto %}
                                     <td>
                                         <a href="{% url 'form_mod_prod' pro.ID_PROD %}"><img class="img-mediano" src="{% static 'postres/img/editar.png' %}" alt="Modificar"></a>
                                     </td>
+                                    {% endif %} {% if perms.postres.delete_producto %}
                                     <td>
-                                        <a class="eliminar" href="{% url 'form_del_prod' pro.ID_PROD %}" ><img class="img-mediano" src="{% static 'postres/img/borrar.png' %}" alt="Borrar"></a>
+                                        <a class="eliminar" href="{% url 'form_del_prod' pro.ID_PROD %}"><img class="img-mediano" src="{% static 'postres/img/borrar.png' %}" alt="Borrar"></a>
                                     </td>
+                                    {% endif %}
                             </tr>
                             {% endfor %}
                         </tbody>

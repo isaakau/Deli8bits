@@ -37,17 +37,15 @@
                         <li class="nav-item"><a class="nav-link" href="{%url 'acercade'%}">Acerca de</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'menu'%}">Productos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'contacto'%}">Contacto</a></li>
-                        {% if request.user.is_authenticated and user.username == 'admin' %}
-                            <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'administracion'%}">Administración</a></li>
-                            <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'usuarios'%}">Usuario</a></li>                    
-                        {% endif %}                
+                        {% if perms.postres.view_producto %}
+                        <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'administracion'%}">Administración</a></li>
+                        <li class="nav-item"><a class="nav-link navbarColor bordeRedonBottom bordeRedonTop" href="{%url 'usuarios'%}">Usuario</a></li>
+                        {% endif %}
                     </ul>
                 </div>
                 {% if user.is_authenticated %}
-                    <a class="nav-link cardColor bordeRedonBottom bordeRedonTop" href="{% url 'logout' %}">Cerrar sesión</a>
-                {% else %}
-                    <a class="nav-link cardColor bordeRedonBottom bordeRedonTop" href="{% url 'login' %}">Iniciar Sesión</a>
-                {% endif%}
+                <a class="nav-link cardColor bordeRedonBottom bordeRedonTop" href="{% url 'logout' %}">Cerrar sesión</a> {% else %}
+                <a class="nav-link cardColor bordeRedonBottom bordeRedonTop" href="{% url 'login' %}">Iniciar Sesión</a> {% endif%}
             </div>
         </nav>
     </header>
@@ -89,21 +87,21 @@
                     <a href="" onclick="alerta()"><i class="bi bi-facebook centrar text-white"></i></a> 
                     <a href="" onclick="alerta()"><i class="bi bi-twitter centrar text-white"></i></a> 
                 </span>
-            <div class="row justify-content-center p-1">
-                <span class="centrar">
+                <div class="row justify-content-center p-1">
+                    <span class="centrar">
                 <a href="{% url 'home' %}">Inicio</a>
                 <a href="{% url 'acercade' %}">Acerca de</a>
                 <a href="{% url 'menu' %}">Productos</a>
                 <a href="{% url 'contacto' %}">Contacto</a>
                 </span>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col text-center font-weight-light text-white sin-margen-bottom">
-                    <p>Realizado por PC IM DC</p>
-                    <p> © 2021 Todos los derechos reservados para Delibits.</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col text-center font-weight-light text-white sin-margen-bottom">
+                        <p>Realizado por PC IM DC</p>
+                        <p> © 2021 Todos los derechos reservados para Delibits.</p>
+                    </div>
                 </div>
             </div>
-        </div>
     </footer>
 
     <!--Popper y Bootstraps juntos-->
