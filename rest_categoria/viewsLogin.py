@@ -12,7 +12,7 @@ from rest_framework.authtoken.models import Token
 @api_view(['POST'])
 def login(request):
     data = JSONParser().parse(request) #creo que esto hace que sea en JSON                  
-    print('Holaaaaaaaaaaaaa')
+    print('************************************')
     username = data['username'] #lo que esta entre comillas tiene que ser lo mismo que en el HTML
     password = data['password']
     print(data)

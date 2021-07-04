@@ -101,8 +101,7 @@ $(document).ready(function() {
 
 //POST a la API para obtener el token 
 function log(username,password) { 
-    console.log(username)
-    console.log(password)
+    console.log(username,password)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "text/plain");
 
@@ -120,7 +119,5 @@ function log(username,password) {
 
     fetch("http://127.0.0.1:8000/api/login", requestOptions)
     .then(response => response.text())
-    .then(result => {console.log(result)
-                    return})
-    .catch(error => console.log('error', error));
+    .then(result => {console.log(result)})
 }

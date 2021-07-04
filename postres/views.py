@@ -160,5 +160,8 @@ def admin_categoria(request):
 
 #login
 def loginUsu(request):
-    
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    print(username)
+    print(password)
     return render(request, 'registration/login.html')
