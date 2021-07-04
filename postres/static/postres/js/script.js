@@ -86,10 +86,7 @@ $(document).ready(function() {
     $.ajaxSetup({
         headers: {
             'Authorization': 'Token 971342ba762348598d5a8203cadd66e889d177b9'
-<<<<<<< HEAD
-=======
 
->>>>>>> isabella
         }
     });
     //obtengo la info de la API
