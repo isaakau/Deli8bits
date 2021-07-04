@@ -1,6 +1,9 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 from .models import PRODUCTO, USUARIO
-from .forms import PRODUCTOForm, USUARIOForm
+from .forms import CustomUserForm, PRODUCTOForm, USUARIOForm
+from django.contrib.auth import login, authenticate
+
 
 # Creamos nuestras Vistas o funciones
 def home(request): #home es una funcion que siempre se llama así pero sirve para llamar a la página de inicio
@@ -67,10 +70,11 @@ def form_del_prod(request, id):
 #LISTAR SOLO CHOCOLATES
 def chocolateria(request):
     listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO WHERE CAT_PRODUCTO_ID = 1 order by NOM_PROD') 
+        
     datos = {
         'productos':listaproductos
     }
-    return render(request, 'postres/Chocolateria.html', datos)
+    return render(request, 'postres/chocolateria.html',datos)
 
 #LISTAR SOLO LOS POSTRES
 def postres(request):
@@ -111,19 +115,20 @@ def form_reg_usuario(request):
             datos['mensaje'] = 'ERROR: No se ha registrado, intente nuevamente'
     return render(request,'postres/form_reg_usuario.html',datos)
 
+#Registrar Usuario en django
 def registro(request):
     datos = {
-        'form':USUARIOForm()
+        'form':CustomUserForm()
     }
     if(request.method == 'POST'): #post guardar datos
-        formulario = USUARIOForm(request.POST)
+        formulario = CustomUserForm(request.POST)
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Registrado correctamente'
         else:
-            formulario = USUARIOForm()
+            formulario = CustomUserForm()
             datos['mensaje'] = 'ERROR: No se ha registrado, intente nuevamente'
-    return render(request,'postres/registro.html',datos)
+    return render(request,'registration/registro.html',datos)
 
 #MODIFICAR USUARIO
 def form_reg_mod_usuario(request,id):
@@ -148,3 +153,15 @@ def form_reg_del_usuario(request, id):
     usuario = USUARIO.objects.get(RUT_USU = id)
     usuario.delete()
     return redirect(to="usuarios")
+
+#CATEGORIAS
+def admin_categoria(request):
+    return render(request, 'postres/admin_categoria.html')
+
+#login
+def loginUsu(request):
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    print(username)
+    print(password)
+    return render(request, 'registration/login.html')
