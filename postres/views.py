@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from .models import PRODUCTO, USUARIO
 from .forms import CustomUserForm, PRODUCTOForm, USUARIOForm
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required, permission_required 
 
 
 # Creamos nuestras Vistas o funciones
@@ -21,6 +22,7 @@ def menu(request):
     return render(request, 'postres/menuProductos.html')
 
 #MANTENEDOR DE PRODUCTOS (Listar)
+@permission_required('postres.view_producto')
 def administracion(request):
     listaproductos = PRODUCTO.objects.raw('SELECT * FROM POSTRES_PRODUCTO order by ID_PROD') 
     datos = {
@@ -28,7 +30,8 @@ def administracion(request):
     }
     return render(request, 'postres/administracion.html', datos)
 
-#AGREGAR PRODUCTO
+#AGREGAR 
+@permission_required('postres.add_producto')
 def form_prod(request):
     datos = {
         'form':PRODUCTOForm()
@@ -44,6 +47,7 @@ def form_prod(request):
     return render(request,'postres/form_prod.html',datos)
 
 #MODIFICAR PRODUCTO
+@permission_required('postres.change_producto')
 def form_mod_prod(request,id):
     producto = PRODUCTO.objects.get(ID_PROD = id)
     datos = {
@@ -62,6 +66,7 @@ def form_mod_prod(request,id):
     return render(request,'postres/form_mod_prod.html',datos)    
 
 #ELIMINAR PRODUCTO
+@permission_required('postres.delete_producto')
 def form_del_prod(request, id):
     producto = PRODUCTO.objects.get(ID_PROD = id)
     producto.delete()
@@ -92,7 +97,8 @@ def tortas(request):
     }
     return render(request, 'postres/Tortas.html',datos)   
 
-#LISTA DE USUARIOS 
+#LISTA DE USUARIOS
+@permission_required('postres.view_usuario') 
 def usuarios(request):
     listausuarios = USUARIO.objects.raw('SELECT * FROM POSTRES_USUARIO order by RUT_USU') 
     datos = {
@@ -101,6 +107,7 @@ def usuarios(request):
     return render(request, 'postres/usuarios.html', datos) 
 
 #REGISTRAR USUARIO
+@permission_required('postres.add_usuario')
 def form_reg_usuario(request):
     datos = {
         'form':USUARIOForm()
@@ -131,6 +138,7 @@ def registro(request):
     return render(request,'registration/registro.html',datos)
 
 #MODIFICAR USUARIO
+@permission_required('postres.change_usuario')
 def form_reg_mod_usuario(request,id):
     usuario = USUARIO.objects.get(RUT_USU = id)
     datos = {
@@ -149,12 +157,14 @@ def form_reg_mod_usuario(request,id):
     return render(request,'postres/form_reg_mod_usuario.html',datos)      
 
 #ELIMINAR USUARIO
+@permission_required('postres.delete_usuario')
 def form_reg_del_usuario(request, id):
     usuario = USUARIO.objects.get(RUT_USU = id)
     usuario.delete()
     return redirect(to="usuarios")
 
 #CATEGORIAS
+@permission_required('postres.view_cat_producto')
 def admin_categoria(request):
     return render(request, 'postres/admin_categoria.html')
 

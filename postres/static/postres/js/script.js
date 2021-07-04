@@ -61,17 +61,17 @@ $(document).ready(function() {
     var today = new Date();
     var mm = today.getMonth() + 1;
     var yyyy = today.getFullYear();
-    $.get("https://apis.digital.gob.cl/fl/feriados/"+yyyy+"/"+mm, function(data) {
+    $.get("https://apis.digital.gob.cl/fl/feriados/" + yyyy + "/" + mm, function(data) {
         $.each(data, function(i, item) {
-            $('#feriados').append("<tr><td>" + (i+1) + "</td><td>" + item.nombre + "</td><td>" +
-            item.fecha + "</td><td>" + item.tipo + "</td></tr>");
+            $('#feriados').append("<tr><td>" + (i + 1) + "</td><td>" + item.nombre + "</td><td>" +
+                item.fecha + "</td><td>" + item.tipo + "</td></tr>");
         });
     });
 });
 
 
 //alertas
-$(document).on('click', '.eliminar', function(){
+$(document).on('click', '.eliminar', function() {
     return confirm('¿Esta seguro que desea eliminar este producto?');
 })
 
@@ -84,15 +84,16 @@ function alerta() {
 $(document).ready(function() {
     //para setear los Header de la llamada a la API y otrgarle permisos
     $.ajaxSetup({
-        headers : {   
-            'Authorization' : 'Token 96494937df81a163427dfdc1b75d76ca85f8c131'
+        headers: {
+            'Authorization': 'Token 971342ba762348598d5a8203cadd66e889d177b9'
+
         }
     });
     //obtengo la info de la API
     $.getJSON("http://127.0.0.1:8000/api/categoria-producto", function(json) {
         $.each(json, function(i, item) {
             $('#propia-api').append("<tr><td>" + item.ID_CATPROD + "</td><td>" +
-            item.NOM_CATPROD + "</td></tr>");
+                item.NOM_CATPROD + "</td></tr>");
         });
     }).fail(function() {
         console.log('Error al consumir la API!');
@@ -100,8 +101,8 @@ $(document).ready(function() {
 });
 
 //POST a la API para obtener el token 
-function log(username,password) { 
-    console.log(username,password)
+function log(username, password) {
+    console.log(username, password)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "text/plain");
 
@@ -109,15 +110,15 @@ function log(username,password) {
         "username": username,
         "password": password
     });
-    
+
     var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow'
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
     };
 
     fetch("http://127.0.0.1:8000/api/login", requestOptions)
-    .then(response => response.text())
-    .then(result => {console.log(result)})
+        .then(response => response.text())
+        .then(result => { console.log(result) })
 }
