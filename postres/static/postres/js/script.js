@@ -85,7 +85,7 @@ $(document).ready(function() {
     //para setear los Header de la llamada a la API y otrgarle permisos
     $.ajaxSetup({
         headers: {
-            'Authorization': 'Token 84df41d0e5dbdcf33c58085115c0884a887760ae'
+            'Authorization': 'Token 971342ba762348598d5a8203cadd66e889d177b9'
 
         }
     });
