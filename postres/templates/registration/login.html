@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} {% load socialaccount %}
 <!--se agregó-->
 <!DOCTYPE html>
 <html lang="es">
@@ -70,6 +70,9 @@
                             <div class="container margen5-top margen5-bottom">
                                 <!-- <button type="submit" onclick="log(username.value ,password.value)" class="btn btn-primary">Ingresar</button> -->
                                 <button type="submit" class="btn btn-success btn-lg" onclick="log(username.value, password.value)">Ingresar</button>
+                            </div>
+                            <div>
+                                <a href="{% provider_login_url 'google' %}">Login with Google</a>
                             </div>
                             <div>
                                 <a class=" btn letra1 bordeRedonBottom bordeRedonTop" href="{% url 'registro' %}">Registrarse en la página</a>
