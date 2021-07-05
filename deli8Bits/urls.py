@@ -16,6 +16,7 @@ Including another URLconf
 import django
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +24,6 @@ urlpatterns = [
     path('apiprod/', include('rest_producto.urls')),
     path('api/', include('rest_categoria.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('allauth.urls')),
+    path('', TemplateView.as_view(template_name="registration/login.html"))
 ]
