@@ -357,18 +357,20 @@ textarea.valid {
     border-color: #F6D8AE;
 }
 
+
 /* Margen abajo en form */
+
 .margen5-bottom {
     margin-bottom: 5%;
 }
 
-.img-tamaño{
-    width: 50px; 
+.img-tamaño {
+    width: 50px;
     height: 50px;
 }
 
-.img-mediano{
-    width: 30px; 
+.img-mediano {
+    width: 30px;
     height: 30px;
 }
 
@@ -380,11 +382,21 @@ textarea.valid {
     text-align: initial;
 }
 
-.letra1{
+.letra1 {
     font-size: large;
     color: #ffff;
     background-color: #FF85BE;
     padding-right: 2rem;
     padding-left: 2rem;
     margin: 2px;
+}
+
+.letra2 {
+    font-size: large;
+    color: rgb(17, 1, 1);
+    background-color: #eeeeee;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    margin: 2px;
+    margin-bottom: 1.2rem;
 }
